@@ -1,0 +1,15 @@
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\bin\Release\net6.0\dal.fortia.deps.json
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\bin\Release\net6.0\dal.fortia.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\bin\Release\net6.0\dal.fortia.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\bin\Release\net6.0\biz.fortia.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\bin\Release\net6.0\biz.fortia.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.AssemblyInfoInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.AssemblyInfo.cs
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.csproj.CopyComplete
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\refint\dal.fortia.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\dal.fortia.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.fortia\obj\Release\net6.0\ref\dal.fortia.dll

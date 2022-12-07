@@ -1,0 +1,1 @@
+﻿global using api.rebel_wings.Extensions;

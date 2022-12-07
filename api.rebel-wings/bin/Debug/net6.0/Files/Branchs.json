@@ -1,0 +1,240 @@
+﻿[
+  {
+    "branchId": 0,
+    "name": "Captura Manual",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314232,
+    "name": "POLANCO",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314234,
+    "name": "INSURGENTES",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314235,
+    "name": "GAD",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314236,
+    "name": "GRAN SUR",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314237,
+    "name": "AZCAPOTZALCO",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314239,
+    "name": "CENTRO",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314240,
+    "name": "GLOTONERIA",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314241,
+    "name": "COAPA",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314242,
+    "name": "UNIVERSIDAD",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314244,
+    "name": "LA VIGA",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314246,
+    "name": "PABELLON",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314247,
+    "name": "PLAZA CENTRAL",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314248,
+    "name": "SENDERO",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314249,
+    "name": "ARCOS",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314250,
+    "name": "BUCARELI",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314251,
+    "name": "SAN JUAN",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314252,
+    "name": "CONSTITUYENTES",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314253,
+    "name": "JURIQUILLA",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314243,
+    "name": "ARCOS",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314550,
+    "name": "CONDESA",
+    "description": "RELOJ WINGS SUC CONDESA                                                                             ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539314717,
+    "name": "ARMAND",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539319570,
+    "name": "APATLACO",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539323276,
+    "name": "UAQ",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539323278,
+    "name": "GUANAJUATO",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539323279,
+    "name": "FORUM",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539323001,
+    "name": "ECATEPEC",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539323342,
+    "name": "CORTIJO",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539323003,
+    "name": "SANTA FE",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539322929,
+    "name": "ZARAGOZA",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539568851,
+    "name": "PEÑUELAS",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539568899,
+    "name": "ALAMEDA",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539323002,
+    "name": "D10",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  },
+  {
+    "branchId": 539313137,
+    "name": "ARCOS",
+    "description": "                                                                                                    ",
+    "tranferId": null,
+    "requestId": null
+  }
+]

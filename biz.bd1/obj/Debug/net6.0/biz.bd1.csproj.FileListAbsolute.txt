@@ -1,0 +1,14 @@
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\bin\Debug\net6.0\biz.bd1.deps.json
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\bin\Debug\net6.0\biz.bd1.runtimeconfig.json
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\bin\Debug\net6.0\biz.bd1.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\bin\Debug\net6.0\biz.bd1.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.AssemblyInfoInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.AssemblyInfo.cs
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\refint\biz.bd1.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\biz.bd1.genruntimeconfig.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.bd1\obj\Debug\net6.0\ref\biz.bd1.dll

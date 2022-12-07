@@ -1,0 +1,17 @@
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\bin\Debug\net6.0\dal.bd2.deps.json
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\bin\Debug\net6.0\dal.bd2.runtimeconfig.json
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\bin\Debug\net6.0\dal.bd2.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\bin\Debug\net6.0\dal.bd2.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\bin\Debug\net6.0\biz.bd2.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\bin\Debug\net6.0\biz.bd2.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.AssemblyInfoInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.AssemblyInfo.cs
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.csproj.CopyComplete
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\refint\dal.bd2.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\dal.bd2.genruntimeconfig.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.bd2\obj\Debug\net6.0\ref\dal.bd2.dll

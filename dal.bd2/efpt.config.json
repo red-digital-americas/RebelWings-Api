@@ -1,0 +1,4323 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "BD2Context",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "DBContext",
+   "OutputPath": null,
+   "ProjectRootNamespace": "dal.bd2",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 1,
+   "Tables": [
+      {
+         "Name": "[dbo].[_ARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[_COMPLEMENTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[_PRECIOSC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[_REFERENCIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ACCIONESPROMOCION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ACCIONESPROMOCIONLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ACTIVIDADES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ACUMULADORETENCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AENA_CANONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AENA_CONTRATOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AENA_SUBFAMILIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AENA_VENTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AENADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AEROPUERTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRACAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRACAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRAGASTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRALIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRALINAMORTIZACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRATALLAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBCOMPRATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTACAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTACAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTACONSUMICIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTACONSUMO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTACUPONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTACUPONESGENERADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTAGPS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTALIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTALINPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTAMODIF]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTAPAG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTAPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTAREGALOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTARUBRICA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTATARJETAEMBARQUE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTATARJETAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALBVENTATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALMACEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALMACENESNUMEMPLEADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALMACENESTARIFA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ALMACENESVACACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANTICIPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTACAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTACUPONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTACUPONESGENERADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTALIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTALINPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTAPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTASERIESRESOL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_ALBVENTATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_FACTURASVENTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_FACTURASVENTACLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ANUL_FACTURASVENTAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARQUEOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARQUEOSMODIFICADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARREGLOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSCOMENTARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSCOMENTARIOSWEB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSCOMMERCE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSDIARIOSCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSENTRADAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSENTRADASHORARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSENTRADASTORNOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSEREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSFACTPORFRANJA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSHABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSHABITACIONESPAXWEB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSIMAGEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSIMAGENEREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSIMAGENES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSPERIODICOSCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSREGIMENES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSRETENCIONESBASE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOSRETENCIONESIVA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASIGNACIONDPTOVENDEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASIGNACIONRECURSOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASUNTOPREGUNTASCONFIGURABLES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASUNTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASUNTOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASUNTOSAUTOMATICOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASUNTOSBLOQUEOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASUNTOSCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ASUNTOSCONTADOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BALANCEOSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BALANCEOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BALANZAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BALANZASENTIDADES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BASESDATOSEXTERNAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BI_INFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BI_INFORMES_USUARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BI_PERMISOS_USUARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BLOQUEOS_CANCELADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BLOQUEOS_EXTRACTOPROMOCIONESTARJETA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BOTONESRETAIL_IDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BUZONESEMAIL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CAJASASIGNADAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CAMPOSLIBRESCONFIG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CAMPOSLIBRESPORSUBTIPO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CAMPOSLIBRESPORTIPOASUNTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CAMPOSLIBRESPOSIBLES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARACTERISTICASHABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGODTOHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGODTOHOTELHABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGODTOHOTELPRECIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGODTOHOTELREGIMENES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGODTOHOTELTARIFAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGOSDTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGOSDTOSCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGOSDTOSPROVEEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARRITOCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARRITOLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CATEGORIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CENTRALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CENTRALESPERMISOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CENTRALESVALORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CHEQUEOTEMP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CICLOSPLAN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CICLOSPLANLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESACTIVIDAD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESENVIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESINTERES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESTARIFASCOMPRA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESTEMPORALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESTEMPORALESCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESTEMPORALESINFO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESTERMINAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTESVARIOSINFO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_CAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_ENLACES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_ENLACESIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_FOTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_FOTOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_FOTOSARTICULOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_INFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CMRC_PARAMETROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COBROSPAGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CODIGOPOSTAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COLORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COLUMNASLISTADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COLUMNASLISTADOSORG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COM_CONFIGTRAMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COM_DISPOSITIVOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COM_OPERACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COM_TRAMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMENTARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMENTARIOSCOCINA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMENTARIOSIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMENTARIOSSERVICIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMISIONESCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMISIONESDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMISIONESHECHAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMISIONESLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMISIONESPORVENDEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMISIONESVENDEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMMERCE_IDS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMMERCE_IDS_TRACKING]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMMERCE_PARAMETROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMMERCE_VERSIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMPENSACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMPETENCIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMPOSICIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMUNICACIONLOG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMUNIDADES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONCEPTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONCEPTOSAJUSTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONCEPTOSBANCARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONCEPTOSPAGO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONDICIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONDICIONESCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONDICIONESGRUPOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONDICIONESGRUPOSCLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONDICIONESGRUPOSOCUPANTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONDICIONESPROVEEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONDICIONESRAPPELSPROVEEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONFIGACTUALIZACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONFIGBOTONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONFIGHABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONFIGHORASEXTRA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONFIGMULTICAJA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONFIGMULTICAJASERIES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONFIGTURNOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONOCIMIENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONSUMOSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONTACTOSCLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONTACTOSCLIENTESTEMPORALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONTACTOSPROVEEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONTADORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONTRATO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CONTROLTRIGGERS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COSTESPORALMACEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COTIZACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CUENTASTRASPASO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DATOSCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DATOSCLIENTELIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DECLARADOZ]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DEPARTAMENTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DEPARTAMENTOIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DESCESTADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DESCUENTOSCLIENTETIPOAVISO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DESGLOSEEFECTIVOPORZ]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DEVOLUCIONTEMP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DIASFESTIVOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DINGUSTAZZY]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DISPOSITIVOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DISPOSITIVOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DISSENYCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DOCUMSDISENYID]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DOCWORD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DOCWORDCONFIG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DOORBOOK]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DPTOVENDEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DTOSOCUPACIONRANGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DTOSOCUPACIONTEMPORADA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DTOSTARIFAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DTOSTIPOARTIC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ECUA_TIPOIDENTIFICACIONCOMPRADOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ECUA_TIPOSIDENTIFICADORSUJETORETENIDO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ECUA_TIPOSIMPUESTOSESPECIALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ELEMENTOSGRUPO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EMBALAJES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ENTREGASCUENTAPROFORMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ENTREGASTARJETA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESQUEMATRASPASO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADISTICA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADISTICA_CONFIG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADISTICA_GRUPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADISTICA_SUBGRUPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADISTICA_USUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADISTICACTRL_CONFIG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADOSTIPODOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ETIQUETASENVIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ETIQUETASENVIOCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ETIQUETASENVIOLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EXTRACTOPROMOCIONESTARJETA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACT_CLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACT_CONCEPTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACT_EMPRESAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACT_FACTURAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACT_USUARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURACIONPARKING]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURACIONPROVCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURACIONPROVLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASABORRAR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRACAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRACOMPROBANTERET]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRACUENTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRARET]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRASERIESRESOL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASCOMPRATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTACAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTACLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTAHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTANOTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTAPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTARET]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTASERIESRESOL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURASVENTATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FALTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FAMILIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FAVORITOSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FAVORITOSIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FAVORITOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FAVORITOSTIPOSTERMINAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FAVORITOSTURNO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FESTIVOSHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FIANZAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FONDOCAJA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FORMASPAGO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FORMASPAGOCAJARAIZ]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FORMATOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FORMATOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FORMATOSIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FOTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FOTOSHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FPAGOCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FPAGOPROVEEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FRONTSUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FTPS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GALERIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GALERIAARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GALERIAARTICULOSIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GALERIAIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GALERIASECCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GALERIASECCIONESIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GARANTIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GASTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GASTOSENVIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRADOSINTERES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOARTICULO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPORECURSOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSALMACENCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSALMACENCRITERIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSALMACENLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSALMACENLINCRITERIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSALMACENUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSARTICULOSUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSCLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSMAPPINGSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSMAPPINGSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GRUPOSOCUPANTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HABITACIONESCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCAMBIARESTADOHAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCARGOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCIERREHABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCIERREPRODUCCION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSCOMENTARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSDIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSESTADOSDEFECTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSEXTRAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSFECHA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSRESTRICCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSSERVICIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HCUPOSTIPOHABITACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HESTADOSDEFECTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HESTADOSHABCENTRALITA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HESTADOSHABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HESTADOSRESERVA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HESTADOSRESERVASCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HHABITACIONESBLOQUEOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_ESTAD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_ESTAD_DIMENSIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_ESTAD_FILTROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_ESTAD_FILTROS_LIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_ESTAD_METRICAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_ESTAD_SERIES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_SCOREBOARD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HIOPOS_SCOREBOARD_INFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HISTOCOMISIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HISTOCOMISIONESCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HISTORICOASUNTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HISTORICOCOMISIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HISTORICOCOSTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HISTORICOKITS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HISTORICORESERVASCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HMENSAJESVENDEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOCUPANTESRESERVA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOPERACIONES_DISPOSITIVOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HORARIOCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HORARIOEMPLEADO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HORARIOLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELESCOMENTARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELESHABITACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELESHABITACIONESWEB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELESREGIMENES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELESTARIFAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELESTARIFASCARGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HOTELESTARIFASEXTRAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HPERSONAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASASUNTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASAUTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASBLOQUEOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASCARGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASCENTRALITA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASCIERREDIARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASCORRECCIONESPRODUCCION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASDOCUMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASESTADOSAUTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESERVASLINCOMENTARIOSSERVICIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HRESULTADOS_DISPOSITIVOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HSERVICIOSREGIMEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HSUPLEMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HTAREASHABITACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HTIPOSBLOQUEO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HTIPOSVIP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HUELLASCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HUELLASVENDEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGCENTRALITA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGCENTRALITAERR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGCONSULTASSQL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGDOCUMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGETIQUETAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGINFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS1]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS10]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS100]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS101]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS102]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS103]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS104]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS105]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS106]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS107]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS108]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS109]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS11]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS110]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS111]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS112]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS113]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS114]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS115]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS116]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS117]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS118]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS119]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS12]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS120]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS121]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS122]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS123]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS124]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS125]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS126]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS127]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS128]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS129]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS13]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS130]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS131]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS132]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS133]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS134]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS135]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS136]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS137]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS138]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS139]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS14]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS140]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS141]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS142]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS143]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS144]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS145]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS146]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS147]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS148]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS149]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS15]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS150]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS151]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS152]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS153]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS16]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS17]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS18]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS19]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS2]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS20]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS21]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS22]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS23]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS24]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS25]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS26]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS27]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS28]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS29]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS3]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS30]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS31]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS32]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS33]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS34]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS35]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS36]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS37]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS38]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS39]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS4]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS40]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS41]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS42]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS43]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS44]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS45]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS46]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS47]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS48]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS49]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS5]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS50]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS51]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS52]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS53]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS54]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS55]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS56]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS57]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS58]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS59]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS6]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS60]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS61]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS62]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS63]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS64]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS65]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS66]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS67]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS68]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS69]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS7]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS70]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS71]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS72]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS73]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS74]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS75]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS76]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS77]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS78]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS79]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS8]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS80]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS81]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS82]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS83]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS84]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS85]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS86]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS87]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS88]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS89]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS9]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS90]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS91]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS92]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS93]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS94]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS95]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS96]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS97]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS98]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGMAIL_CALCULOS99]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGNOMBRESETIQUETAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGNOMBRESINFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ICGPRECIOSXPREFIJO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ID_ARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ID_FAVORITOSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ID_VENDEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ID_VENTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_ATRIBUTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_ATRIBUTOS_GRAFICA_SB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_CAMPOS_ORIGENES_RELACIONALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_CAMPOS_RELACIONALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_CONEXIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_CONTROLES_INFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_CUBOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_DIMENSIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_DIMENSIONES_CUBOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_FILTROS_CUBO_SB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_FILTROS_ORIGEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_GRUPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_GRUPOS_MEDIDAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_GRUPOS_MEDIDAS_METRICAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_HECHOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_HECHOS_CUBOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_INFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_JERARQUIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_METRICAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_METRICAS_GRAFICA_SB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_ORIGENES_RELACIONALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_TIME_INTELLIGENCE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_USUARIOS_INFORMES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_VALORES_FILTROS_CUBO_SB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IE_VALORES_FILTROS_ORIGEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IMAGENESUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IMPRESIONDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IMPRESIONDOC_GRUPOSALMACEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IMPRESIONPARKING]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IMPRESORAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IMPUESTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INCIDENCIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INCIDENCIASCONFIG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INCIDENCIASLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INCIDENCIASNOAUTOVALIDABLES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INFORME]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INFORMECOLUMNAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INFORMEFILTROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INFORMEPARAMETROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INFORMESTYC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INTERESES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INTERVALOSRAPPELS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INVENTARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INVENTARIOSZONA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_AC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_AL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_AQ]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_AT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_AV_LOG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_BITACORA_PRECIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_CLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_COMPRAS_FACTURA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_CONTROL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_DOCUMENTOSCA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_EXISTENCIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_FAC_DETALLE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_FT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_FV]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_LOG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_LOG_OP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_MARCA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_MOD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PRODUCTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_TE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_USUARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KITFASES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KITS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KPI]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KPI_DETALLE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KPI_DETALLEKPI]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KPI_FILTRO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KPI_FILTRO_DEF]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[KPI_USUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LASTSALES_ALBVENTACAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LASTSALES_ALBVENTALIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LASTSALES_ARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LASTSALES_ARTICULOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LINEA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LINEASCOMUNICACIONLOG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LOGZSAFACTURAR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LUGARES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LUGARESREPARACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAILING]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAILINGBITMAPS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MANIPULACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPING]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSAUTOMATIZADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSAUTOMATIZADOSFILES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSEXPORTACIONESCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSEXPORTACIONESLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSFICHEROSRELACIONADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSFIELDS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSFILES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSFILESMAINFIELDS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSFILESPARAMETROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSFILESSORTEDFIELDS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSIDIMPORTACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSPROPIEDADES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSREGLAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MAPPINGSSQLS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MARCA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MEDIOSPAGOHIOPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MENSAJES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MERMASCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MERMASLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MISCUBOSOLAP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MISCUBOSOLAP_PROPIEDADES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MISCUBOSOLAP_USUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MODIFICACIONES_CENTRAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MODIFICADORESARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MODIFICADORESCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MODIFICADORESIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MODIFICADORESLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MONEDAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MONEDASHIOPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MONEDASLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MONEDASPIEZASHIOPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSABONO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSABONO_IDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSDESCUADRE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSDEVOLUCION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSDTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSENTRADA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSMERMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSPARADAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSRECHAZO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSSALIDA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSTRASPASO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOTIVOSTRASPASO_IDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOVIMENTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_Caja]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_ConfigTipoTerminal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_FamiliasNoModificables]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_FamiliasTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_GrupoTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_ImpuestosTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_IncidenciasTerminal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_MediosPagoTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_MonedasTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_MotivosDescuentoTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_MotivosDevolucionTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_PeticionReenvio]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_TarifasTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_TarjetaFidelizacion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_Terminal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_Tienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_TipoTerminal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NET_VendedoresTienda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NOMBRESDOCSID]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NOMBRESDOCSID_GRUPOSALMACEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NOMINAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NOMINASENLACECONTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NORMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NUMEROSSERIEREGUL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OCUPANTESRESERVA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OPCIONESTESORERIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ORDENESFABCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ORDENESFABFASES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ORDENESFABLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ORDENESMENUDETALLE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PAGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PAISES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PAQUETESHOTELCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PARAMETROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PARAMETROSTIPOSTERMINAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PASARELAPAGO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRACAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRACAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRALIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRATALLAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTACAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTACAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTACONSUMO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTACUPONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTACUPONESGENERADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTADTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTAFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTALIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTALINPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTAMODIF]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTAPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDVENTATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PERSONAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PLANTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PLANTILLAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PLANTILLASUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PLUGGINS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PLUGGINSEMPRESA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PLUGINS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PM_SITUACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PM_TERMINALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRECIOSCOMPRA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRECIOSHABITACIONDIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRECIOSHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRECIOSHOTELDIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRECIOSREGIMEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRECIOSSUPLEMENTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRECIOSVENTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PREDEFINIDOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PREGUNTASGLOBALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESUPUESTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESUPUESTOSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESUPUESTOSCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESUPUESTOSDTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESUPUESTOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESUPUESTOSPARTIDAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRESUPUESTOSTOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PREVISIONCOMPRAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PREVISIONDPTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PREVISIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PREVISIONTEMP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PREVISIONVENTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCEDENCIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSEMAIL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSESPECIALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSESPECIALESEXEC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSESPECIALESPARAMS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSESPECIALESSQL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSESPECIALESUSU]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROCESOSLOG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESCONSEGUIDAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESEMPRESA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESFORMASPAGO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESGRUPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESGRUPOSALMACEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESHOSTELERIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESIDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESINCOMPATIBLES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESTARIFAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROMOCIONESUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROVEEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROVEEDORESCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROVEEDORESRETENCIONESIVA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROVEEDORESTERMINAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RAICESCONTABLES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RAICESSERIE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RANGOHORAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RANGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RAPPELSPROVEEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RECURSOSEMPRESA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RECURSOSSERVICIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REFERENCIASPROV]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGALOSPENDIENTESTARJETA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGIMENES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGIMENESFACTURACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGIMENFACTURACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGIMENRET]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGISTROANULACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGISTROAUDITORIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGISTROEMPLEADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REGULARIZACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RELACIONESCUENTASEFECTIVO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RELCAMPOSLIBRESUBICACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_ACCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CAJASFRONT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CAJASFRONTSERIES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CAJASFRONTSSERIESSUBEMPRESAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CAJASFRONTSSERIESSUBEMPRESASDECENTRAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CONFIG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CONFIGDISENYSIMPRESORAREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CONFIGEMAILFRONT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CONFIGSALA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CONFIGSCREEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CONTROLACCESO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CONTROLREPLICACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_CUBIERTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_DISENYSDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_DISPOSITIVOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_DISPOSITIVOSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_DISPOSITIVOSREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSINFORMEDECENTRAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSINSTANCIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSPLUGGINSDECENTRAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSPROPIEDADES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSPROPIEDADESDECENTRAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSSUBEMPRESAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSSUBEMPRESASDECENTRAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSTERMINALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSUPDATE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTSUPDATELIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_GRUPOSSECSIMPRESORAREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_HOTELES_FRONT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_IMPRESORAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_IMPRESORASREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_INCIDENCIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_INFOENTIDADESFRONTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_INFOVERSIONESFRONTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_INITCONFIGURACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_IPFRONTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_IPFRONTSLOCAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_LISTASFRONTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_LISTASFRONTSDECENTRAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_LISTASFRONTSDETALLE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_LISTASHOTELES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_MODELOSIMPRESORAREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_PEDTEMPCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_PEDTEMPLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_PROVEEDORESFRONT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_RANGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_REGISTRODISPOSITIVOSREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_SALAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_SECSIMPRESORA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_SECSIMPRESORAREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_SQLSFRONT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_TERMINALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_TERMINALESLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_TERMINALESREST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_TRANSACCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_VERSIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_VERSIONESDEFRONTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_VERSIONESLOCAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REMESAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REMESASADEUDO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REMESASVENCIMIENTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REMFRONT_TRANSACCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REPARTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REPARTOSTOCK]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REPARTOSTOCKCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESERVACAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESERVAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESERVASCOMSERV]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESERVASCUPOSUSADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESERVASDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESERVASESTADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESERVASLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESPUESTASASUNTOCONFIGURABLES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REST_DISENYS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REST_IMPRESIONDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REST_TIQUETSDISENY]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESULTADOSGENERANSERVICIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESULTADOSGLOBALESSERVICIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RUTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RUTASLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SCOREBOARDSUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SECCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SECSIMPRESORA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SECUENCIACARGOSPROV]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SEMANAS_CTOVTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SEMANAS_CTOVTAINV]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERIE_AN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERIE_PPTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERIE_SEMANAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERIES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERIESCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERIESDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERIESRESOLUCION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOSAUDITORIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOSCAMPOSLIBRES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOSDOCUMENTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOSGLOBALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOSGLOBALESCOMENTARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SERVICIOSPARADAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_DIAPOSITIVAGRUPO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_DIAPOSITIVAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_DIAPOSITIVASPRESENTACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_HORARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_HORARIOFRONT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_ITEMS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_PRESENTACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_PRESENTACIONHORARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SHOW_RECURSOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SITUACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SITUACIONESARTICULO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SITUACIONESFAMILIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SITUACIONESMACRO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SMS_ENVIADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SMS_TEXTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SQLS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[STOCKS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[STOCKSFLAGS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[STOCKSPORZ]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUBFAMILIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUCURSALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUCURSALESPERMISOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUCURSALESVALORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUPLEMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUSTITUTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TACONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TALLAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TAREASAUTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TAREASAUTO_LOG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASCLIENTEDMN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASCOMPRA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELCALENDARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELCALENDARIODEFECTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELEXTRAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELGRUPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELRANGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELSERVICIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASHOTELTEMPORADAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASVENTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASVENTAGRUPOSALMACEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASVENTAREGLAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARIFASVENTAUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARJETAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARJETASCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARJETASCONSUMICION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARJETASCONTCONDICIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARJETASCONTMENUS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARJETASCONTPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TARJETASPROMOCION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEFS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEFS_CONFIG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEFS_PARAMS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEFTRANSACCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TELEVENTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPORADAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPORADASDIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPORADASHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPORADASLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TEMPORALESTYC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TERMINALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TERMINALESLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TESORERIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TICKETSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TICKETSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TICKETSPAG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOARREGLOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOASUNTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOASUNTOPARADEFECTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOAVISOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOEMPLEADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOREGALOSTARJETA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSARTICULO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSDIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSDOC]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSDOCESQUEMATRASPASO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSDOCUMENTOSIDENTIF]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSDOCUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSERVICIOSDELIVERY]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSPAGO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSPAGO_IDIOMAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSRESERVA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSRETENCION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSRETENCIONCLAVE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSRETENCIONLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETACONDICIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETACONDICIONESRTL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETAMENUS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETAOFERTA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETAPROMOCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETAPROMOCIONESLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTARJETAPROMOCIONESLINRTL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOSTERMINAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOTARJETACREDITO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOTARJETACREDITOHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOTARJETASCLIENTE]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIQUETSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIQUETSCONSUMO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIQUETSFACTURADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIQUETSLIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIQUETSMODIF]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIQUETSPAG]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TORNOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TRANSPORTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TRASPASOSCAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TRASPASOSFIRMA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TSK_CONFIGMARCAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TURNOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TURNOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TURNOSARTICULOSDEFECTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TURNOSPLAN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TURNOSPLANUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ULTIMASVENTAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ULTIMOSBLOQUEOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[URGENCIASREPARACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[USUARIOSLISTASCODIGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VACACIONESEMPLEADO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VACACIONESEMPRESA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VACACIONESMOTIVO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VEHICULOSPROPIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENCIMFPAGO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESCONTRATO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESDISPONIBILIDAD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESHORARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESHOTEL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESPLAN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESPLAN_ES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESPLANINCIDENCIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESTERMINAL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESTURNOSPLAN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORESUSUARIO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENTASACUMULADAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENTASCASHDRO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENTASCASHDROANTICIPOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENTASCASHDROTESORERIA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENTASTEFS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VERSION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VISIBILIDADCLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VISIBILIDADPROVEEDORES]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "WIN-PAMC9C849GI.BD1",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

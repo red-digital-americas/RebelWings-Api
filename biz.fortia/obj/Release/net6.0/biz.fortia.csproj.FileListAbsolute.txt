@@ -1,0 +1,12 @@
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\bin\Release\net6.0\biz.fortia.deps.json
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\bin\Release\net6.0\biz.fortia.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\bin\Release\net6.0\biz.fortia.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\biz.fortia.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\biz.fortia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\biz.fortia.AssemblyInfoInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\biz.fortia.AssemblyInfo.cs
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\biz.fortia.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\biz.fortia.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\refint\biz.fortia.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\biz.fortia.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\biz.fortia\obj\Release\net6.0\ref\biz.fortia.dll

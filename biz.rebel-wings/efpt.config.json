@@ -1,0 +1,419 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "Db_Rebel_WingsContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "biz.rebel_wings",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 2,
+   "Tables": [
+      {
+         "Name": "[dbo].[Alarm]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Albaran]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Audio_Video]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Banos_Matutino]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Bar]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Bar_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Bathroom]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BathRooms_Overall_Status]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cash_Register_Shortage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Amount]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_AssignedTo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Branch_Locate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Menu]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Part_Branch]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Role]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Section]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Specific_Section]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_State]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Status_Albaran]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Status_Request_Transfer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Status_Stock_Chicken]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Status_Ticket]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Status_Validate_Attendance]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Sub_Menu]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Ticketing]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_Type_Field]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cat_WorkShift]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Check_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Comment_Ticketing]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Complete_Products_In_Order]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Drinks_Temperature]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Entries_Charged_As_Delivery_Note]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Form_Field]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Fridge]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Fridge_Salon]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Fryer_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[General_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Kitchen]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Living_Room_Bathroom_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Order]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Order_Schedule_Review]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[People_Counting]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Permission]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Alarm]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Banos_Matutino]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Bar]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Bar_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Bathroom]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Cash_Register_Shortage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Complete_Products_In_Order]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Drinks_Temperature]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Entries_Charged_As_Delivery_Note]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Fridge]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Fridge_Salon]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Fryer_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_General_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Kitchen]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Living_Room_Bathroom_Cleaning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Order]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Order_Schedule_Review]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_People_Counting]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Precooked_Chicken]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Salon]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Station]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Tablet_Sage_Keeping]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Ticket]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Ticket_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Ticketing]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Tip]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_To_Set_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Validation_Gas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Waitlist_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_WashBasin_With_Soap_Paper]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Precooked_Chicken]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Request_Transfer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Risk_Product]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Salon]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Satisfaction_Survey]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Spotlight]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Station]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Stock_Chicke_Used]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Stock_Chicken]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Stock_Chicken_By_Branch]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tablet_Safe_Keeping]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Task]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Task_Branch]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Ticket]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Ticket_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Ticketing]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tip]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[To_Set_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Users]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Validate_Attendance]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Validation_Gas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Waitlist_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[WashBasin_With_Soap_Paper]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "EC2AMAZ-UCFB368.db_rebel_wings",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": true,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

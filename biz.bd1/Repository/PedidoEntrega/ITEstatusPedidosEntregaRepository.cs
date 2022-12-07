@@ -1,0 +1,13 @@
+﻿using biz.bd1.Repository.Generic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace biz.bd1.Repository.PedidoEntrega
+{
+    public interface ITEstatusPedidosEntregaRepository : IGenericRepository<biz.bd1.Entities.TEstatusPedidosEntrega>
+    {
+    }
+}

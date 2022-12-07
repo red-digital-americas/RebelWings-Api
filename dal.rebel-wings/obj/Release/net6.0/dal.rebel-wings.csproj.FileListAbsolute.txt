@@ -1,0 +1,15 @@
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\bin\Release\net6.0\dal.rebel-wings.deps.json
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\bin\Release\net6.0\dal.rebel-wings.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\bin\Release\net6.0\dal.rebel-wings.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\bin\Release\net6.0\biz.rebel-wings.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\bin\Release\net6.0\biz.rebel-wings.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.AssemblyInfoInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.AssemblyInfo.cs
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.csproj.CopyComplete
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\refint\dal.rebel-wings.dll
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\dal.rebel-wings.pdb
+C:\Users\Daniel\Documents\GitHub\RebelWings-Web\dal.rebel-wings\obj\Release\net6.0\ref\dal.rebel-wings.dll
