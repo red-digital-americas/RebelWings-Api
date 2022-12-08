@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.fortia\\biz.fortia.csproj": {}
+    "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.fortia\\biz.fortia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.fortia\\biz.fortia.csproj": {
+    "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.fortia\\biz.fortia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.fortia\\biz.fortia.csproj",
+        "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.fortia\\biz.fortia.csproj",
         "projectName": "biz.fortia",
-        "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.fortia\\biz.fortia.csproj",
+        "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.fortia\\biz.fortia.csproj",
         "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.fortia\\obj\\",
+        "outputPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.fortia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

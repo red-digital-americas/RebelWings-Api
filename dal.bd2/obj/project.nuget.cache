@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "smfrmkBFUrdP2E4pFh6l2tL7DAN1XmeaCTM7mVZ8QiuWJTzvzEHvuBa78kE5qmwScWA5pY7/bFQIQHx2pp6VgA==",
+  "dgSpecHash": "f6sPz74EMM37L16dwd5sS7VPuWiW4Fbgw51EqJEizaDFak4ibzsD26LAd4QFBLTRKIw3sLswOgHj5cHVV+W09g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\dal.bd2\\dal.bd2.csproj",
+  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\dal.bd2\\dal.bd2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniel\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

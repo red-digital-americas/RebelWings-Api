@@ -5707,11 +5707,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.rebel-wings\\biz.rebel-wings.csproj",
+      "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.rebel-wings\\biz.rebel-wings.csproj",
       "projectName": "biz.rebel-wings",
-      "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.rebel-wings\\biz.rebel-wings.csproj",
+      "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.rebel-wings\\biz.rebel-wings.csproj",
       "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.rebel-wings\\obj\\",
+      "outputPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.rebel-wings\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

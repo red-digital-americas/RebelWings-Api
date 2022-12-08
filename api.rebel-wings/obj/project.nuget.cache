@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4UhRD+IJKNDaiu1N/rhtyILb7y1oiabrmcLjE2fb3pn5XUZQrButh+DY1tpa22hnWkUGHYN+PQsQfMn86JcxRg==",
+  "dgSpecHash": "r/1eskBMwH0KCEryTAjlFn6gL+IHvJUGU8rnoC0tuwhy9TRYDfH1H4FFDyNLhtLkoW9tJfxErJpJ4inJdv9BvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\api.rebel-wings\\api.rebel-wings.csproj",
+  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\api.rebel-wings\\api.rebel-wings.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniel\\.nuget\\packages\\automapper\\8.0.0\\automapper.8.0.0.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

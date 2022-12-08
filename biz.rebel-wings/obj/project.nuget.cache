@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nMXHrBf0p16I5HaoOqwrMXLMfUxdCKAL29Txq0IY9yh4ZiRocpQi95M9KyaTbf/vER3UryCCkZrOV4oL6AMTkw==",
+  "dgSpecHash": "fDPyxelIqXpWNdKpZ9H6G8kM2j8T7dsa6hhm1oeRryfRxdnfoX9k+MhKHkr1ruj1Q1zGxsrV0QPOdwBN9gDJWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.rebel-wings\\biz.rebel-wings.csproj",
+  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.rebel-wings\\biz.rebel-wings.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cvXkCvZ3kvUj4UZvC//fkoaOqcaIE/dXOjwC048mLrlKRckGGqoC+/rDXVkDslsfubZoVPN/hV3REAwPxy/S1A==",
+  "dgSpecHash": "yrPIccfjaZaguW/uB4uUkw7ttXYpeQW5NmR4IUDWp3E/yzEYdr3vvqIz6H6qE1i4bl4E1zFJAY6AHCmSRT/s8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\dal.rebel-wings\\dal.rebel-wings.csproj",
+  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\dal.rebel-wings\\dal.rebel-wings.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.7\\microsoft.aspnet.webpages.3.2.7.nupkg.sha512",

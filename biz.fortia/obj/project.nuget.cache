@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x3QGG/rAeydM/XOCqZg/Nx9QgDpNzciWlHmcwBzg/iy8ZpsJ2MqlLZCZCruA2swcu+oc+ARa6CULOFKFaz3pew==",
+  "dgSpecHash": "bifbBYuvSfXhdVJxhU0fdFhZv9lGOavJ4gS5pg0l2jioElvIdT6z8ksfBa/Zlr1+9pQdnngNoHCEUmvlxM+MdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Web\\biz.fortia\\biz.fortia.csproj",
+  "projectFilePath": "C:\\Users\\Daniel\\Documents\\GitHub\\RebelWings-Api\\biz.fortia\\biz.fortia.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
