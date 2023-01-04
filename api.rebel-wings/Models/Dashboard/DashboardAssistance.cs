@@ -24,3 +24,17 @@ public class DashboardAssistance
     /// </summary>
     public virtual ICollection<Assistance> AssistanceEveningsCollection { get; set; }
 }
+
+public class DashboardAssistanceV2
+{
+    public DashboardAssistanceV2()
+    {
+        AssistanceMorningsCollection = new HashSet<AssistanceV2>();
+        AssistanceEveningsCollection = new HashSet<AssistanceV2>();
+    }
+    public decimal PercentageAssistance { get; set; }
+    public int Delays { get; set; }
+    public int Absences { get; set; }
+    public virtual ICollection<AssistanceV2> AssistanceMorningsCollection { get; set; }
+    public virtual ICollection<AssistanceV2> AssistanceEveningsCollection { get; set; }
+}

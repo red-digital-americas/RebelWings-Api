@@ -21,6 +21,8 @@ namespace biz.rebel_wings.Entities
             CatStatusTicketCreatedByNavigations = new HashSet<CatStatusTicket>();
             CatStatusTicketUpdatedByNavigations = new HashSet<CatStatusTicket>();
             CatStatusValidateAttendances = new HashSet<CatStatusValidateAttendance>();
+            CatSucursals = new HashSet<CatSucursal>();
+            Inventarios = new HashSet<Inventario>();
             LivingRoomBathroomCleanings = new HashSet<LivingRoomBathroomCleaning>();
             PhotoCashRegisterShortages = new HashSet<PhotoCashRegisterShortage>();
             PhotoLivingRoomBathroomCleanings = new HashSet<PhotoLivingRoomBathroomCleaning>();
@@ -79,6 +81,8 @@ namespace biz.rebel_wings.Entities
         public virtual ICollection<CatStatusTicket> CatStatusTicketCreatedByNavigations { get; set; }
         public virtual ICollection<CatStatusTicket> CatStatusTicketUpdatedByNavigations { get; set; }
         public virtual ICollection<CatStatusValidateAttendance> CatStatusValidateAttendances { get; set; }
+        public virtual ICollection<CatSucursal> CatSucursals { get; set; }
+        public virtual ICollection<Inventario> Inventarios { get; set; }
         public virtual ICollection<LivingRoomBathroomCleaning> LivingRoomBathroomCleanings { get; set; }
         public virtual ICollection<PhotoCashRegisterShortage> PhotoCashRegisterShortages { get; set; }
         public virtual ICollection<PhotoLivingRoomBathroomCleaning> PhotoLivingRoomBathroomCleanings { get; set; }

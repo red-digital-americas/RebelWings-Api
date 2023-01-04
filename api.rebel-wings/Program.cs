@@ -81,6 +81,7 @@ using biz.rebel_wings.Repository.Salon;
 using biz.rebel_wings.Repository.SatisfactionSurvey;
 using biz.rebel_wings.Repository.Spotlight;
 using biz.rebel_wings.Repository.Station;
+using biz.rebel_wings.Repository.Stock;
 using biz.rebel_wings.Repository.Task;
 using biz.rebel_wings.Repository.Ticket;
 using biz.rebel_wings.Repository.Ticketing;
@@ -115,6 +116,7 @@ using dal.rebel_wings.Repository.Salon;
 using dal.rebel_wings.Repository.SatisfactionSurvey;
 using dal.rebel_wings.Repository.Spotlight;
 using dal.rebel_wings.Repository.Station;
+using dal.rebel_wings.Repository.Stock;
 using dal.rebel_wings.Repository.Task;
 using dal.rebel_wings.Repository.Ticket;
 using dal.rebel_wings.Repository.Ticketing;
@@ -148,6 +150,7 @@ builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
                 .AllowAnyHeader()
                 .WithOrigins("http://localhost")
                 .WithOrigins("http://localhost:4200")
+                .WithOrigins("http://localhost:4200/")
                 .WithOrigins("http://localhost:8100")
                 .WithOrigins("http://demo-minimalist.com")
                 .WithOrigins("http://34.237.214.147")
@@ -155,6 +158,7 @@ builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
                 .WithOrigins("Ionic://localhost")
                 .WithOrigins("capacitor://localhost")
                 .WithOrigins("http://localhost:63410")
+                .WithOrigins("https://localhost:49403")
                 .AllowCredentials();
             }));
 
@@ -272,6 +276,7 @@ builder.Services.AddTransient<biz.bd2.Repository.PedidoEntrega.ITFotosPedidosEnt
 builder.Services.AddTransient<biz.bd1.Repository.PedidoEntrega.ITFotosPedidosEntregaRepository, dal.bd1.Repository.PedidoEntrega.TFotosPedidosEntregaRepository>();
 builder.Services.AddTransient<biz.bd2.Repository.PedidoEntrega.ITEstatusPedidosEntregaRepository, dal.bd2.Repository.PedidoEntrega.TEstatusPedidosEntregaRepository>();
 builder.Services.AddTransient<biz.bd1.Repository.PedidoEntrega.ITEstatusPedidosEntregaRepository, dal.bd1.Repository.PedidoEntrega.TEstatusPedidosEntregaRepository>();
+builder.Services.AddTransient<IStockRepository, StockRepository>();
 #endregion
 // Auto Mapper Configurations
 var mapperConfig = new MapperConfiguration(mc =>

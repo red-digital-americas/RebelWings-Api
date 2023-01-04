@@ -74,21 +74,27 @@ public class DashboardController : ControllerBase
     /// Supervisor
     /// </summary>
     /// <param name="id">Branch ID</param>
-    /// <param name="dateTime">Date</param>
+    /// <param name="dateTime">Time frame 1</param>
+    /// <param name="dateTime">Time frame 2</param>
+    /// <param name="int">If task is done or not</param>
+    /// <param name="city">City ID</param>
     /// <returns></returns>
     [HttpGet("{id}/Supervisor")]
     [ServiceFilterAttribute(typeof(ValidationFilterAttribute))]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<ApiResponse<DashboardSupervisor>> GetSupervisor(int id, [FromQuery] DateTime dateTime)
+    public ActionResult<ApiResponse<DashboardSupervisor>> GetSupervisor(int id, [FromQuery] DateTime timeOne,
+        [FromQuery] DateTime timeTwo, [FromQuery] int isDone, [FromQuery] int city)
     {
         var response = new ApiResponse<DashboardSupervisor>();
         try
         {
             response.Result =
                 _mapper.Map<DashboardSupervisor>(
-                    _dashboardRepository.GetSupervisors(id, dateTime.AbsoluteStart(), dateTime.AbsoluteEnd()));
+                    _dashboardRepository.GetSupervisorsV2(
+                        id, timeOne.AbsoluteStart(), timeTwo.AbsoluteEnd(), isDone, city)
+                    );
         }
         catch (Exception ex)
         {
@@ -104,21 +110,22 @@ public class DashboardController : ControllerBase
     /// GET:
     /// Regional
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="dateTime"></param>
+    /// <param name="id">Branch</param>
+    /// <param name="dateTime">Time frame 1</param>
+    /// <param name="dateTime">Time frame 2</param>
     /// <returns></returns>
     [HttpGet("{id}/Regional")]
     [ServiceFilterAttribute(typeof(ValidationFilterAttribute))]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<ApiResponse<DashboardRegional>> GetRegionals(int id, [FromQuery] DateTime dateTime)
+    public ActionResult<ApiResponse<DashboardRegional>> GetRegionals(int id, [FromQuery] DateTime timeOne, 
+        [FromQuery] DateTime timeTwo, [FromQuery] int isDone, [FromQuery] int city)
     {
         var response = new ApiResponse<DashboardRegional>();
         try
         {
-
-            response.Result = _mapper.Map<DashboardRegional>(_dashboardRepository.GetRegional(id, dateTime.AbsoluteStart(), dateTime.AbsoluteEnd()));
-
+            response.Result = _mapper.Map<DashboardRegional>(_dashboardRepository.GetRegionalV2
+                (id, timeOne.AbsoluteStart(), timeTwo.AbsoluteEnd(), isDone, city));
         }
         catch (Exception ex)
         {
@@ -142,12 +149,13 @@ public class DashboardController : ControllerBase
     [ServiceFilterAttribute(typeof(ValidationFilterAttribute))]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<ApiResponse<DashboardAssistance>> GetAssistance(int id, [FromQuery] DateTime dateTime)
+    public ActionResult<ApiResponse<DashboardAssistanceV2>> GetAssistance(int id,  [FromQuery] DateTime timeOne, 
+        [FromQuery] DateTime timeTwo)
     {
-        var response = new ApiResponse<DashboardAssistance>();
+        var response = new ApiResponse<DashboardAssistanceV2>();
         try
         {
-            response.Result = _mapper.Map<DashboardAssistance>(_dashboardRepository.GetAssistance(id, dateTime.AbsoluteStart(), dateTime.AbsoluteEnd()));
+            response.Result = _mapper.Map<DashboardAssistanceV2>(_dashboardRepository.GetAssistance(id, timeOne, timeTwo));
         }
         catch (Exception ex)
         {

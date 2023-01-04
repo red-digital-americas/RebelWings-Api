@@ -4,7 +4,7 @@ public class PeopleCountingDto
 {
     public PeopleCountingDto()
     {
-        PhotoPeoplesCountings = new HashSet<PhotoPeopleDto>();
+        PhotoPeopleCountings = new HashSet<PhotoPeopleDto>();
     }
     public int Id { get; set; }
     public int BranchId { get; set; }
@@ -16,5 +16,5 @@ public class PeopleCountingDto
     public int? UpdatedBy { get; set; }
     public DateTime? UpdatedDate { get; set; }
 
-    public virtual ICollection<PhotoPeopleDto> PhotoPeoplesCountings { get; set; }
+    public virtual ICollection<PhotoPeopleDto> PhotoPeopleCountings { get; set; }
 }
