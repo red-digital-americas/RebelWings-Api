@@ -9,6 +9,7 @@ namespace biz.rebel_wings.Entities
     {
         public CatState()
         {
+            CatSucursals = new HashSet<CatSucursal>();
             Users = new HashSet<User>();
         }
 
@@ -16,6 +17,7 @@ namespace biz.rebel_wings.Entities
         public string State { get; set; } = null!;
         public bool Status { get; set; }
 
+        public virtual ICollection<CatSucursal> CatSucursals { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
 }

@@ -7,7 +7,7 @@ public class BathRoomsOverallStatusDto
 
     public BathRoomsOverallStatusDto()
     {
-        PhotoBathRoomsOverallStatuss = new HashSet<PhotoBathRoomsOverallStatusDto>();
+        PhotoBathRoomsOverallStatuses = new HashSet<PhotoBathRoomsOverallStatusDto>();
     }
     /// <summary>
     /// PK
@@ -53,5 +53,5 @@ public class BathRoomsOverallStatusDto
     public DateTime CreatedDate { get; set; }
     public int? UpdatedBy { get; set; }
     public DateTime? UpdatedDate { get; set; }
-    public virtual ICollection<PhotoBathRoomsOverallStatusDto> PhotoBathRoomsOverallStatuss { get; set; }
+    public virtual ICollection<PhotoBathRoomsOverallStatusDto> PhotoBathRoomsOverallStatuses { get; set; }
 }

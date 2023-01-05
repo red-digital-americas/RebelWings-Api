@@ -56,7 +56,7 @@ public class BathRoomsOverallStatusController : ControllerBase
         {
             var today = DateTime.Now.AddDays(-1);
             today = today.AbsoluteEnd().ToUniversalTime();
-            var order = _bathRoomsOverallStatusRepository.GetAllIncluding(i => i.PhotoBathRoomsOverallStatuss);
+            var order = _bathRoomsOverallStatusRepository.GetAllIncluding(i => i.PhotoBathRoomsOverallStatuses);
             var @default = await order.FirstOrDefaultAsync(f => f.BranchId == id && f.CreatedDate > today && f.CreatedBy == user);
             response.Result = _mapper.Map<BathRoomsOverallStatusDto>(@default);
             response.Message = "Consult was success";
@@ -81,7 +81,7 @@ public class BathRoomsOverallStatusController : ControllerBase
         var response = new ApiResponse<BathRoomsOverallStatusDto>();
         try
         {
-            response.Result = _mapper.Map<BathRoomsOverallStatusDto>(_bathRoomsOverallStatusRepository.GetAllIncluding(g=>g.PhotoBathRoomsOverallStatuss).FirstOrDefault(f => f.Id == id));
+            response.Result = _mapper.Map<BathRoomsOverallStatusDto>(_bathRoomsOverallStatusRepository.GetAllIncluding(g=>g.PhotoBathRoomsOverallStatuses).FirstOrDefault(f => f.Id == id));
             response.Message = "Operation was success";
             response.Success = true;
         }
@@ -110,7 +110,7 @@ public class BathRoomsOverallStatusController : ControllerBase
         var response = new ApiResponse<BathRoomsOverallStatusDto>();
         try
         {
-            foreach (var item in bathRoomsOverallStatusDto.PhotoBathRoomsOverallStatuss)
+            foreach (var item in bathRoomsOverallStatusDto.PhotoBathRoomsOverallStatuses)
             {
                 if (_photoBathRoomsOverallStatusRepository.IsBase64(item.Photo))
                 {
@@ -154,7 +154,7 @@ public class BathRoomsOverallStatusController : ControllerBase
         var response = new ApiResponse<BathRoomsOverallStatusDto>();
         try
         {
-            foreach (var item in bathRoomsOverallStatusDto.PhotoBathRoomsOverallStatuss)
+            foreach (var item in bathRoomsOverallStatusDto.PhotoBathRoomsOverallStatuses)
             {
                 if (_photoBathRoomsOverallStatusRepository.IsBase64(item.Photo) && item.Id == 0)
                 {

@@ -9,3 +9,13 @@ public class Assistance
     public int AssistanceStatus { get; set; }
     public int? Detail { get; set; }
 }
+
+public class AssistanceV2
+{
+    public DateTime Date { get; set; }
+    public decimal Cashiers { get; set; }
+    public decimal Sellers { get; set; }
+    public decimal Chefs { get; set; }
+    public int Status { get; set; }
+    public int? Detail { get; set; }
+}
