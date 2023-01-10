@@ -54,7 +54,7 @@ namespace api.rebel_wings.Controllers;
       {
         var today = DateTime.Now.AddDays(-1);
         today = today.AbsoluteEnd().ToUniversalTime();
-        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeopleCountings)
+        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeoplesCountings)
             .FirstOrDefault(f => f.BranchId == id && f.CreatedDate > today && f.CreatedBy == user);
         response.Result = _mapper.Map<PeopleCountingDto>(order);
         response.Message = "Consult was success";
@@ -86,7 +86,7 @@ namespace api.rebel_wings.Controllers;
       Models.ApiResponse.ApiResponse<PeopleCountingDto> response = new Models.ApiResponse.ApiResponse<PeopleCountingDto>();
       try
       {
-        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeopleCountings)
+        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeoplesCountings)
             .FirstOrDefault(f => f.Id == id);
         response.Result = _mapper.Map<PeopleCountingDto>(order);
         response.Message = "Consult was success";
@@ -118,7 +118,7 @@ namespace api.rebel_wings.Controllers;
       Models.ApiResponse.ApiResponse<PeopleCountingDto> response = new Models.ApiResponse.ApiResponse<PeopleCountingDto>();
       try
       {
-        foreach (var item in peopleCountingDto.PhotoPeopleCountings)
+        foreach (var item in peopleCountingDto.PhotoPeoplesCountings)
         {
           if (_photopPeopleCountingRepository.IsBase64(item.Photo))
           {
@@ -196,7 +196,7 @@ namespace api.rebel_wings.Controllers;
       Models.ApiResponse.ApiResponse<PeopleCountingDto> response = new Models.ApiResponse.ApiResponse<PeopleCountingDto>();
       try
       {
-        foreach (var item in peopleDtos.PhotoPeopleCountings)
+        foreach (var item in peopleDtos.PhotoPeoplesCountings)
         {
           if (_photopPeopleCountingRepository.IsBase64(item.Photo) && item.Id == 0)
           {
