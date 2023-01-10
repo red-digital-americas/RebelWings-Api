@@ -5,17 +5,19 @@ using System.Collections.Generic;
 
 namespace biz.rebel_wings.Entities
 {
-    public partial class PhotoSatisfactionSurvey
+    public partial class CatSucursal
     {
         public int Id { get; set; }
-        public int SatisfactionsurveyId { get; set; }
-        public string Photo { get; set; } = null!;
-        public int Type { get; set; }
+        public int UserId { get; set; }
+        public int BranchId { get; set; }
+        public int? StateId { get; set; }
         public int CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public bool? Status { get; set; }
 
-        public virtual SatisfactionSurvey Satisfactionsurvey { get; set; } = null!;
+        public virtual CatState? State { get; set; }
+        public virtual User User { get; set; } = null!;
     }
 }

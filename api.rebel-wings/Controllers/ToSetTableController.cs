@@ -65,7 +65,7 @@ namespace api.rebel_wings.Controllers
 
     /// <summary>
     /// GET:
-    /// Regresa Audio & Video objeto
+    /// Regresa Apertura
     /// </summary>
     /// <param name="id"></param>
     /// <param name="user"></param>

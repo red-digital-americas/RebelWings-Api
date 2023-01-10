@@ -86,8 +86,6 @@ namespace api.rebel_wings.Controllers;
       Models.ApiResponse.ApiResponse<PeopleCountingDto> response = new Models.ApiResponse.ApiResponse<PeopleCountingDto>();
       try
       {
-        var today = DateTime.Now.AddDays(-1);
-        today = today.AbsoluteEnd();
         var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeoplesCountings)
             .FirstOrDefault(f => f.Id == id);
         response.Result = _mapper.Map<PeopleCountingDto>(order);

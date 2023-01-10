@@ -137,6 +137,91 @@ namespace api.rebel_wings.Controllers
             return Ok(response);
         }
 
+        [HttpGet("Branches/{user:int}/{city:int}")]
+        public ActionResult<ApiResponse<List<SucursalesDto>>> GetSucursals(int user, int city)
+        {
+            var response = new ApiResponse<List<SucursalesDto>>();
+  
+            try
+            {
+                var branches = _userRepository.GetAllIncluding(i => i.CatSucursals)
+                    .FirstOrDefault(f => f.Id == user)
+                    ?.CatSucursals.Select(s=>s.BranchId).ToArray();
+                switch (city)
+                {
+                    case 1:
+                        response.Result = _mapper.Map<List<SucursalesDto>>(
+                            _sucursalDB2Repository.GetAll().Where(x => x.Descatalogado == false && branches.Contains(x.Idfront))
+                            );
+                        response.Message = "success";
+                        break;
+                    case 2:
+                        response.Result = _mapper.Map<List<SucursalesDto>>(
+                            _sucursalDB1Repository.GetAll().Where(x => x.Descatalogado == false && branches.Contains(x.Idfront))
+                            );
+                        response.Message = "success";
+                        break;
+                    default:
+                       
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Result = null;
+                response.Success = false;
+                response.Message = ex.ToString();
+                _logger.LogError($"Something went wrong: {ex.ToString()}");
+                return StatusCode(500, response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet("Regionals/{city:int}")]
+        public ActionResult<ApiResponse<List<UserDto>>> GetRegionals(int city)
+        {
+            var response = new ApiResponse<List<UserDto>>();
+            try
+            {
+                response.Result = _mapper.Map<List<UserDto>>(_userRepository.FindAll(f => f.RoleId.Equals(2) && f.StateId == city));
+                response.Message = "Operation was successful";
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Result = null;
+                response.Success = false;
+                response.Message = ex.ToString();
+                _logger.LogError($"Something went wrong: {ex.ToString()}");
+                return StatusCode(500, response);
+            }
+
+            return Ok(response);
+        }
+        
+        [HttpGet("Supervisors/{city:int}/{user:int}")]
+        public ActionResult<ApiResponse<List<UserDto>>> GetSupervisors(int city, int user)
+        {
+            var response = new ApiResponse<List<UserDto>>();
+            try
+            {
+                response.Result = _mapper.Map<List<UserDto>>(_userRepository.FindAll(f => f.RoleId.Equals(2) && f.StateId == city));
+                response.Message = "Operation was successful";
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.Result = null;
+                response.Success = false;
+                response.Message = ex.ToString();
+                _logger.LogError($"Something went wrong: {ex.ToString()}");
+                return StatusCode(500, response);
+            }
+
+            return Ok(response);
+        }
+        
         [HttpGet("GetStateList", Name = "GetStateList")]
         public ActionResult<ApiResponse<List<CatStateDto>>> GetStateList()
         {
@@ -341,7 +426,10 @@ namespace api.rebel_wings.Controllers
                             default:
                                 dataBase = "La base de datos no existe";
                                 break;
-                        }                        
+                        }
+
+                        var branches = _userRepository.GetAllIncluding(i => i.CatSucursals)
+                            .FirstOrDefault(f => f.Id == _user.Id).CatSucursals;
                         UserReturnDto userReturnDto = new UserReturnDto()
                         {
                             Email = userData.Email,
@@ -356,7 +444,8 @@ namespace api.rebel_wings.Controllers
                             DataBase = dataBase,
                             Branch = sucursal,//_iRHTrabRepository.GetBranchId(userData.ClabTrab.Value),
                             BranchName = sucursalName,//userData.BranchId.HasValue ? _iRHTrabRepository.GetBranchNameById(userData.BranchId.Value) : "",
-                            BranchId = userData.SucursalId //userData.BranchId
+                            BranchId = userData.SucursalId, //userData.BranchId
+                            Branchs = branches.Any() ? branches.Select(s=>s.BranchId).ToArray() : null
                         };
                         response.Result = userReturnDto;
                         response.Result.Token = _userRepository.BuildToken(_user);

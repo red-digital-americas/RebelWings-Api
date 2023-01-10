@@ -112,5 +112,7 @@
         /// </summary>
         public int Branch { get; set; }
         public int? BranchId { get; set; }
-    }
+
+        public int[]? Branchs { get; set; }
+        }
 }

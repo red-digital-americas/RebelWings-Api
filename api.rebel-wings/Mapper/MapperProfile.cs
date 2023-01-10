@@ -43,6 +43,7 @@ using api.rebel_wings.Models.ValidateAttendance;
 using api.rebel_wings.Models.ValidationGas;
 using api.rebel_wings.Models.WaitlistTable;
 using api.rebel_wings.Models.BanosMatutino;
+using api.rebel_wings.Models.Stock;
 using api.rebel_wings.Models.WashBasinWithSoapPaper;
 using AutoMapper;
 using biz.bd1.Entities;
@@ -55,6 +56,7 @@ using Albaranes = api.rebel_wings.Models.Albaran.Albaranes;
 using Assistance = api.rebel_wings.Models.Dashboard.Assistance;
 using DashboardAdmin = api.rebel_wings.Models.Dashboard.DashboardAdmin;
 using DashboardAssistance = api.rebel_wings.Models.Dashboard.DashboardAssistance;
+using Inventario = biz.rebel_wings.Entities.Inventario;
 using Task = biz.rebel_wings.Entities.Task;
 
 namespace api.rebel_wings.Mapper
@@ -195,6 +197,7 @@ namespace api.rebel_wings.Mapper
             CreateMap<biz.bd2.Entities.TPedidosEntrega, TPedidoEntregaDto>().ReverseMap();
             CreateMap<biz.bd1.Entities.TPedidosEntrega, TPedidoEntregaUpadteDto>().ReverseMap();
             CreateMap<biz.bd2.Entities.TPedidosEntrega, TPedidoEntregaUpadteDto>().ReverseMap();
+            CreateMap<Inventario, StockV2>().ReverseMap();
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using api.rebel_wings.ActionFilter;
 using api.rebel_wings.Models.ApiResponse;
 using api.rebel_wings.Models.RequestTransfer;
@@ -8,6 +9,7 @@ using biz.fortia.Repository.RH;
 using biz.rebel_wings.Entities;
 using biz.rebel_wings.Repository.CatStatusSalesExpectations;
 using biz.rebel_wings.Repository.SalesExpectations;
+using biz.rebel_wings.Repository.Stock;
 using biz.rebel_wings.Services.Logger;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -33,6 +35,7 @@ namespace api.rebel_wings.Controllers
         private readonly biz.bd2.Repository.Sucursal.ISucursalRepository _sucursalDB2Repository;
         private readonly biz.bd1.Repository.Stock.IStockRepository _stockDB1Repository;
         private readonly biz.bd2.Repository.Stock.IStockRepository _stockDB2Repository;
+        private readonly IStockRepository _stockRepository;
         /// <summary>
         /// Contructor
         /// </summary>
@@ -54,7 +57,8 @@ namespace api.rebel_wings.Controllers
             biz.bd1.Repository.Sucursal.ISucursalRepository sucursalDB1Repository,
             biz.bd2.Repository.Sucursal.ISucursalRepository sucursalDB2Repository,
             biz.bd1.Repository.Stock.IStockRepository stockDB1Repository,
-            biz.bd2.Repository.Stock.IStockRepository stockDB2Repository)
+            biz.bd2.Repository.Stock.IStockRepository stockDB2Repository,
+            IStockRepository stockRepository)
         {
             _logger = logger;
             _mapper = mapper;
@@ -67,6 +71,7 @@ namespace api.rebel_wings.Controllers
             _sucursalDB2Repository = sucursalDB2Repository;
             _stockDB1Repository = stockDB1Repository;
             _stockDB2Repository = stockDB2Repository;
+            _stockRepository = stockRepository; 
         }
         /// <summary>
         /// GET para retornar por ID Expectativa de Venta
@@ -675,6 +680,71 @@ namespace api.rebel_wings.Controllers
             return StatusCode(200, response);
         }
         
+        [HttpGet("Admin/Stock")]
+        [ServiceFilterAttribute(typeof(ValidationFilterAttribute))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ApiResponse<List<StockV2Response>>>> GetStock(
+            [FromQuery] int? city,[FromQuery]  int? branch,[FromQuery] DateTime dateInit, [FromQuery] DateTime dateEnd)
+        {
+            var response = new ApiResponse<List<StockV2Response>>();
+            try
+            {
+                var list = new List<TransferDto>();
+                switch (city)
+                {
+                    case 1:
+                        list = _mapper.Map<List<TransferDto>>(_sucursalDB2Repository.GetBranchList());
+                        break;
+                    case 2:
+                        list = _mapper.Map<List<TransferDto>>(_sucursalDB1Repository.GetBranchList());
+                        break;
+                    default:
+                        break;
+                }
+                
+                if (branch.HasValue)
+                {
+                    list = list.Where(x=>x.BranchId == branch).ToList();
+                }
+
+                var res = _stockRepository.GetAll()
+                    .Where(x=> 
+                        list.Select(s=>s.BranchId ).Contains(x.Branch.Value) 
+                        && x.CreatedDate >= dateInit.AbsoluteStart()
+                        && x.CreatedDate <= dateEnd.AbsoluteEnd())
+                    .Select(s => new StockV2Response()
+                    {
+                        Id = s.Id,
+                        CreatedDate = s.CreatedDate,
+                        CreatedBy = s.CreatedBy,
+                        Articulo = s.Articulo,
+                        Branch = s.Branch,
+                        UpdatedBy = s.UpdatedBy,
+                        UpdatedDate = s.UpdatedDate,
+                        Diferencia = s.Diferencia,
+                        BranchName = "",
+                        Intentos = s.Intentos,
+                        InvInicial = s.InvInicial,
+                        InvReg = s.InvReg
+                    }).ToList();
+
+                foreach (var v2Response in res)
+                {
+                    v2Response.BranchName = list.First(x => x.BranchId == v2Response.Branch).Name;
+                }
+                
+                response.Result = _mapper.Map<List<StockV2Response>>(res.OrderByDescending(o=>o.CreatedDate));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                response.Success = false;
+                response.Message = ex.Message;
+                return StatusCode(500, response);
+            }
+            return StatusCode(200, response);
+        }
+
         private static string FormattedAmount(decimal _amount)
         {
             return $"{_amount:C}";

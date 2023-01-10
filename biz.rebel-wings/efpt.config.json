@@ -8,6 +8,7 @@
    "ModelNamespace": null,
    "OutputContextPath": null,
    "OutputPath": "Entities",
+   "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "biz.rebel_wings",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
@@ -110,6 +111,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Cat_Sucursal]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Cat_Ticketing]",
          "ObjectType": 0
       },
@@ -162,6 +167,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Inventarios]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Kitchen]",
          "ObjectType": 0
       },
@@ -190,6 +199,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Photo_AudioVideo]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Photo_Banos_Matutino]",
          "ObjectType": 0
       },
@@ -203,6 +216,10 @@
       },
       {
          "Name": "[dbo].[Photo_Bathroom]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_BathRoomsOverallStatus]",
          "ObjectType": 0
       },
       {
@@ -266,6 +283,14 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Photo_SatisfactionSurvey]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_Spotlight]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Photo_Station]",
          "ObjectType": 0
       },
@@ -291,6 +316,10 @@
       },
       {
          "Name": "[dbo].[Photo_To_Set_Table]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Photo_ValidateAttendance]",
          "ObjectType": 0
       },
       {
@@ -398,7 +427,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "EC2AMAZ-UCFB368.db_rebel_wings",
+   "UiHint": "WIN-8UEESSEO0HB\\APP.db_rebel_wings",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,
@@ -415,5 +444,6 @@
    "UseNodaTime": false,
    "UseNullableReferences": true,
    "UseSchemaFolders": false,
-   "UseSpatial": false
+   "UseSpatial": false,
+   "UseT4": false
 }
