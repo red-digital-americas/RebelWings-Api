@@ -11,6 +11,6 @@ namespace biz.bd2.Repository.Stock
     {
         List<biz.bd2.Models.StockDto> GetStock(int id_sucursal);
         decimal StockValidate(int id_sucursal, int codarticulo);
-        biz.bd2.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, int cantidad);
+        biz.bd2.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, double cantidad);
     }
 }
