@@ -54,7 +54,7 @@ namespace api.rebel_wings.Controllers;
       {
         var today = DateTime.Now.AddDays(-1);
         today = today.AbsoluteEnd().ToUniversalTime();
-        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeoplesCountings)
+        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeopleCountings)
             .FirstOrDefault(f => f.BranchId == id && f.CreatedDate > today && f.CreatedBy == user);
         response.Result = _mapper.Map<PeopleCountingDto>(order);
         response.Message = "Consult was success";
@@ -86,7 +86,7 @@ namespace api.rebel_wings.Controllers;
       Models.ApiResponse.ApiResponse<PeopleCountingDto> response = new Models.ApiResponse.ApiResponse<PeopleCountingDto>();
       try
       {
-        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeoplesCountings)
+        var order = _peopleCountingRepository.GetAllIncluding(i => i.PhotoPeopleCountings)
             .FirstOrDefault(f => f.Id == id);
         response.Result = _mapper.Map<PeopleCountingDto>(order);
         response.Message = "Consult was success";
