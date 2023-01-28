@@ -224,7 +224,7 @@ namespace api.rebel_wings.Controllers
         /// <param name="dataBase">dataBase base de datos que se obtiene de login</param>
         /// <returns></returns>
         [HttpPost("AddRegularizate", Name = "AddRegularizate")]
-        public ActionResult<ApiResponse<StockDto>> AddRegularizate(int codArticulo, string codAlmacen, int cantidad, string dataBase)
+        public ActionResult<ApiResponse<StockDto>> AddRegularizate(int codArticulo, string codAlmacen, double cantidad, string dataBase)
         {
             var response = new ApiResponse<StockDto>();
 

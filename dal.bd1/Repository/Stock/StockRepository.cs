@@ -162,7 +162,7 @@ namespace dal.bd1.Repository.Stock
 
             return _stock;
         }
-        public biz.bd1.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, int cantidad)
+        public biz.bd1.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, double cantidad)
         {
             biz.bd1.Models.StockDto _stock = new biz.bd1.Models.StockDto();
             //FECHA DE INVENTARIOS

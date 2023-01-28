@@ -122,7 +122,7 @@ namespace dal.bd2.Repository.Stock
 
             return _stock;
         }
-        public biz.bd2.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, int cantidad)
+        public biz.bd2.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, double cantidad)
         {
             biz.bd2.Models.StockDto _stock = new biz.bd2.Models.StockDto();
 
