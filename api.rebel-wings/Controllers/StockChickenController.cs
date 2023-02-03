@@ -4,15 +4,18 @@ using api.rebel_wings.Models.ApiResponse;
 using api.rebel_wings.Models.RequestTransfer;
 using api.rebel_wings.Models.SalesExpectations;
 using api.rebel_wings.Models.Stock;
+using api.rebel_wings.Models.User;
 using AutoMapper;
 using biz.fortia.Repository.RH;
 using biz.rebel_wings.Entities;
 using biz.rebel_wings.Repository.CatStatusSalesExpectations;
 using biz.rebel_wings.Repository.SalesExpectations;
 using biz.rebel_wings.Repository.Stock;
+using biz.rebel_wings.Repository.User;
 using biz.rebel_wings.Services.Logger;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using biz.rebel_wings.Repository;
 
 namespace api.rebel_wings.Controllers
 {
@@ -36,6 +39,7 @@ namespace api.rebel_wings.Controllers
         private readonly biz.bd1.Repository.Stock.IStockRepository _stockDB1Repository;
         private readonly biz.bd2.Repository.Stock.IStockRepository _stockDB2Repository;
         private readonly IStockRepository _stockRepository;
+        private readonly IUserRepository _userRepository;
         /// <summary>
         /// Contructor
         /// </summary>
@@ -58,7 +62,7 @@ namespace api.rebel_wings.Controllers
             biz.bd2.Repository.Sucursal.ISucursalRepository sucursalDB2Repository,
             biz.bd1.Repository.Stock.IStockRepository stockDB1Repository,
             biz.bd2.Repository.Stock.IStockRepository stockDB2Repository,
-            IStockRepository stockRepository)
+            IStockRepository stockRepository, IUserRepository userRepository)
         {
             _logger = logger;
             _mapper = mapper;
@@ -71,7 +75,8 @@ namespace api.rebel_wings.Controllers
             _sucursalDB2Repository = sucursalDB2Repository;
             _stockDB1Repository = stockDB1Repository;
             _stockDB2Repository = stockDB2Repository;
-            _stockRepository = stockRepository; 
+            _stockRepository = stockRepository;
+            _userRepository = userRepository;
         }
         /// <summary>
         /// GET para retornar por ID Expectativa de Venta
@@ -690,22 +695,35 @@ namespace api.rebel_wings.Controllers
             try
             {
                 var list = new List<TransferDto>();
+                var usrlist = new List<UserDto>();
+
+
+
                 switch (city)
                 {
                     case 1:
                         list = _mapper.Map<List<TransferDto>>(_sucursalDB2Repository.GetBranchList());
+                        usrlist = _mapper.Map<List<UserDto>>(_userRepository.GetUserList());
                         break;
                     case 2:
                         list = _mapper.Map<List<TransferDto>>(_sucursalDB1Repository.GetBranchList());
+                        usrlist = _mapper.Map<List<UserDto>>(_userRepository.GetUserList());
                         break;
                     default:
                         break;
                 }
-                
+
+
+
+
                 if (branch.HasValue)
                 {
                     list = list.Where(x=>x.BranchId == branch).ToList();
+                    usrlist = usrlist.Where(x=>x.SucursalId == branch && x.StateId == city).ToList();
                 }
+                
+                
+                
 
                 var res = _stockRepository.GetAll()
                     .Where(x=> 
@@ -727,6 +745,8 @@ namespace api.rebel_wings.Controllers
                         InvInicial = s.InvInicial,
                         InvReg = s.InvReg
                     }).ToList();
+
+                    res = res.Where(x => usrlist.Select(s=>s.Id).Contains(x.CreatedBy)).ToList();
 
                 foreach (var v2Response in res)
                 {

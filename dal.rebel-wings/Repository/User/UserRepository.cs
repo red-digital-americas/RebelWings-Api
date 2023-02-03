@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Helpers;
 using biz.rebel_wings.Entities;
+using biz.rebel_wings.Models.User;
 
 namespace dal.rebel_wings.Repository.User
 {
@@ -88,6 +89,30 @@ namespace dal.rebel_wings.Repository.User
         public List<biz.rebel_wings.Entities.CatState> CatStateList()
         {
             return _context.CatStates.ToList();
+        }
+
+        public List<biz.rebel_wings.Models.User.UserList> GetUserList()
+        {
+            var branchList = _context.Users.Select(s => new biz.rebel_wings.Models.User.UserList()
+            {
+                Id = s.Id,
+                Email = s.Email,
+                Password = s.Password,
+                ClabTrab = s.ClabTrab,
+                Token = s.Token,
+                Name = s.Name,
+                LastName = s.LastName,
+                MotherName = s.MotherName,
+                RoleId = s.RoleId,
+                StateId = s.StateId,
+                SucursalId = s.SucursalId,
+                BranchId = s.BranchId,
+                CreatedBy = s.CreatedBy,
+                CreatedDate = s.CreatedDate,
+                UpdatedBy = s.UpdatedBy,
+                UpdatedDate = s.UpdatedDate,
+            }).ToList();
+            return branchList;
         }
     }
 }
