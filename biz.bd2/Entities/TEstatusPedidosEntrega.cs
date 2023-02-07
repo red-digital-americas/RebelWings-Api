@@ -9,8 +9,7 @@ namespace biz.bd2.Entities
     {
         public TEstatusPedidosEntrega()
         {
-            TPedidosEntregaEstatusEntregaNavigations = new HashSet<TPedidosEntrega>();
-            TPedidosEntregaEstatusPedidoNavigations = new HashSet<TPedidosEntrega>();
+            TPedidosEntregaEstatusNavigations = new HashSet<TPedidosEntrega>(); 
         }
 
         public int Id { get; set; }
@@ -18,7 +17,6 @@ namespace biz.bd2.Entities
         public string Tipo { get; set; }
         public bool Active { get; set; }
 
-        public virtual ICollection<TPedidosEntrega> TPedidosEntregaEstatusEntregaNavigations { get; set; }
-        public virtual ICollection<TPedidosEntrega> TPedidosEntregaEstatusPedidoNavigations { get; set; }
+        public virtual ICollection<TPedidosEntrega> TPedidosEntregaEstatusNavigations { get; set; }
     }
 }

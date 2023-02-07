@@ -43,6 +43,7 @@ using api.rebel_wings.Models.ValidateAttendance;
 using api.rebel_wings.Models.ValidationGas;
 using api.rebel_wings.Models.WaitlistTable;
 using api.rebel_wings.Models.BanosMatutino;
+using api.rebel_wings.Models.Mermas;
 using api.rebel_wings.Models.Stock;
 using api.rebel_wings.Models.WashBasinWithSoapPaper;
 using AutoMapper;
@@ -197,7 +198,13 @@ namespace api.rebel_wings.Mapper
             CreateMap<biz.bd2.Entities.TPedidosEntrega, TPedidoEntregaDto>().ReverseMap();
             CreateMap<biz.bd1.Entities.TPedidosEntrega, TPedidoEntregaUpadteDto>().ReverseMap();
             CreateMap<biz.bd2.Entities.TPedidosEntrega, TPedidoEntregaUpadteDto>().ReverseMap();
+            CreateMap<biz.bd1.Entities.TFotosPedidosEntrega, TFotosPedidosEntregaUpdateUpdateDto>().ReverseMap();
+            CreateMap<biz.bd2.Entities.TFotosPedidosEntrega, TFotosPedidosEntregaUpdateUpdateDto>().ReverseMap();
+            CreateMap<biz.bd1.Entities.TFotosPedidosEntrega, TFotosPedidosEntregaDto>().ReverseMap();
+            CreateMap<biz.bd2.Entities.TFotosPedidosEntrega, TFotosPedidosEntregaDto>().ReverseMap();
             CreateMap<Inventario, StockV2>().ReverseMap();
+            CreateMap<Mermas, MermasDto>().ReverseMap();
+            CreateMap<biz.bd2.Models.Mermas, MermasDto>().ReverseMap();
         }
     }
 }

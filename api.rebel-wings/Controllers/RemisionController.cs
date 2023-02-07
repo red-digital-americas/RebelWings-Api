@@ -26,6 +26,8 @@ public class RemisionController : ControllerBase
     private readonly biz.bd1.Repository.PedidoEntrega.ITEstatusPedidosEntregaRepository _tEstatusPedidosEntregaDB1Repository;
     private readonly biz.bd2.Repository.PedidoEntrega.ITPedidosEntregaRepository _pedidosEntregaDB2Repository;
     private readonly biz.bd1.Repository.PedidoEntrega.ITPedidosEntregaRepository _pedidosEntregaDB1Repository;
+    private readonly biz.bd1.Repository.PedidoEntrega.ITFotosPedidosEntregaRepository _fotosPedidosEntregaDB1Repository;
+    private readonly biz.bd2.Repository.PedidoEntrega.ITFotosPedidosEntregaRepository _fotosPedidosEntregaDB2Repository;
     private readonly IRHTrabRepository _rhTrabRepository;
     /// <summary>
     /// Constructor
@@ -44,7 +46,9 @@ public class RemisionController : ControllerBase
         biz.bd1.Repository.PedidoEntrega.ITEstatusPedidosEntregaRepository tEstatusPedidosEntregaDB1Repository,
         biz.bd2.Repository.PedidoEntrega.ITPedidosEntregaRepository pedidosEntregaDB2Repository,
         biz.bd1.Repository.PedidoEntrega.ITPedidosEntregaRepository pedidosEntregaDB1Repository,
-        IRHTrabRepository rhTrabRepository
+        IRHTrabRepository rhTrabRepository,
+        biz.bd1.Repository.PedidoEntrega.ITFotosPedidosEntregaRepository fotosPedidosEntregaDB1Repository,
+        biz.bd2.Repository.PedidoEntrega.ITFotosPedidosEntregaRepository fotosPedidosEntregaDB2Repository
         )
     {
         _mapper = mapper;
@@ -56,6 +60,8 @@ public class RemisionController : ControllerBase
         _pedidosEntregaDB1Repository = pedidosEntregaDB1Repository;
         _pedidosEntregaDB2Repository = pedidosEntregaDB2Repository;
         _rhTrabRepository = rhTrabRepository;
+        _fotosPedidosEntregaDB1Repository = fotosPedidosEntregaDB1Repository;
+        _fotosPedidosEntregaDB2Repository = fotosPedidosEntregaDB2Repository;
     }
     [HttpGet("{id}")]
     [ServiceFilterAttribute(typeof(ValidationFilterAttribute))]
@@ -93,9 +99,30 @@ public class RemisionController : ControllerBase
 
     [HttpGet("GetPedidosEntregas", Name = "GetPedidosEntregas")]
     [ServiceFilterAttribute(typeof(ValidationFilterAttribute))]
-    public ActionResult<ApiResponse<List<TPedidoEntregaDto>>> GetPedidosEntregas(int id_suscursal, string dataBase)
+    public ActionResult<ApiResponse<List<TPedidoEntregaCalendarDto>>> GetPedidosEntregas(int id_suscursal, string dataBase)
     {
-        var response = new ApiResponse<List<TPedidoEntregaDto>>();
+        var response = new ApiResponse<List<TPedidoEntregaCalendarDto>>();
+        var colorsPalette = new List<ColorDto>
+        {
+            new(){ 
+                Primary= "rgb(255, 149, 0)",
+                Secondary= "rgb(255, 149, 0)",
+                Name = "PENDIENTE",
+                Id = 1
+            },
+            new(){
+                Primary= "rgb(26,71,42)",
+                Secondary= "rgb(26,71,42)",
+                Name = "REALIZADO",
+                Id = 2
+            },
+            new(){
+                Primary= "rgb(208, 18, 45)",
+                Secondary= "rgb(208, 18, 45)",
+                Name = "FUERA DE TIEMPO",
+                Id = 2
+            }
+        };
         try
         {
             switch (dataBase)
@@ -108,17 +135,13 @@ public class RemisionController : ControllerBase
                               Id = s.Id,
                               IdProveedor = s.IdProveedor,
                               ProveedorName= _pedidosEntregaDB1Repository.GetProveedor(s.IdProveedor),
-                              FechaProgPedido= s.FechaProgPedido,
-                              FechaPedidoReal= s.FechaPedidoReal,
-                              FechaProgEntrega= s.FechaProgEntrega,
-                              FechaEntregaReal= s.FechaEntregaReal,
-                              ComentariosPedido= s.ComentariosPedido,
-                              ComentariosEntrega= s.ComentariosEntrega,
-                              EstatusEntrega= s.EstatusEntrega,
-                              EstatusEntregaName= s.EstatusEntregaNavigation.Estatus,
-                              EstatusPedido= s.EstatusPedido,
-                              EstatusPedidoName= s.EstatusPedidoNavigation.Estatus,
+                              FechaProg= s.FechaProg,
+                              FechaReal= s.FechaReal,
+                              Estatus= s.Estatus,
                               IdSucursal= s.IdSucursal,
+                              Comentarios= s.Comentarios,
+                              EstatusName= s.EstatusNavigation.Estatus,
+                              EstatusType= s.EstatusNavigation.Tipo,
                               TFotosPedidosEntregas= s.TFotosPedidosEntregas.Select(f => new TFotosPedidosEntregaDto()
                               {
                                   Id=f.Id,
@@ -128,7 +151,34 @@ public class RemisionController : ControllerBase
                               }).ToList()
 
                         }).ToList();
-                    response.Result = _mapper.Map<List<TPedidoEntregaDto>>(pedidodb1);
+
+                    #region Calendar
+
+                    var calendarDto = new List<TPedidoEntregaCalendarDto>();
+                    foreach (var i in pedidodb1)
+                    {
+                        calendarDto.Add(new TPedidoEntregaCalendarDto()
+                        {
+                            Id = i.Id,
+                            IdProvedor = i.IdProveedor,
+                            Start = i.FechaProg,
+                            End = i.FechaProg,
+                            title= $"{i.ProveedorName} / {i.EstatusName} / {i.EstatusType}",
+                            FechaProg = i.FechaProg,
+                            FechaReal = i.FechaReal,
+                            Comment = i.Comentarios,
+                            EstatusName = i.EstatusName,
+                            Estatus = i.Estatus,
+                            IdSucursal= i.IdSucursal,
+                            Nombre = i.EstatusType,
+                            TFotosPedidosEntregas = i.TFotosPedidosEntregas,
+                            Color = colorsPalette.First(f=>f.Name.Equals(i.EstatusName)),
+                            Draggable = false,
+                        });
+                    }
+
+                    #endregion
+                    response.Result = calendarDto;
                     response.Message = "success";
                     response.Success = true;
                     break;
@@ -139,18 +189,14 @@ public class RemisionController : ControllerBase
                          {
                              Id = s.Id,
                              IdProveedor = s.IdProveedor,
-                             ProveedorName = _pedidosEntregaDB2Repository.GetProveedor(s.IdProveedor),
-                             FechaProgPedido = s.FechaProgPedido,
-                             FechaPedidoReal = s.FechaPedidoReal,
-                             FechaProgEntrega = s.FechaProgEntrega,
-                             FechaEntregaReal = s.FechaEntregaReal,
-                             ComentariosPedido = s.ComentariosPedido,
-                             ComentariosEntrega = s.ComentariosEntrega,
-                             EstatusEntrega = s.EstatusEntrega,
-                             EstatusEntregaName = s.EstatusEntregaNavigation.Estatus,
-                             EstatusPedido = s.EstatusPedido,
-                             EstatusPedidoName = s.EstatusPedidoNavigation.Estatus,
-                             IdSucursal = s.IdSucursal,
+                             ProveedorName= _pedidosEntregaDB1Repository.GetProveedor(s.IdProveedor),
+                             FechaProg= s.FechaProg,
+                             FechaReal= s.FechaReal,
+                             Estatus= s.Estatus,
+                             IdSucursal= s.IdSucursal,
+                             Comentarios= s.Comentarios,
+                             EstatusName= s.EstatusNavigation.Estatus,
+                             EstatusType = s.EstatusNavigation.Tipo,
                              TFotosPedidosEntregas = s.TFotosPedidosEntregas.Select(f => new TFotosPedidosEntregaDto()
                              {
                                  Id = f.Id,
@@ -160,7 +206,35 @@ public class RemisionController : ControllerBase
                              }).ToList()
 
                          }).ToList();
-                    response.Result = _mapper.Map<List<TPedidoEntregaDto>>(pedidodb2);
+                    
+                    #region Calendar
+
+                    var calendarDB2Dto = new List<TPedidoEntregaCalendarDto>();
+                    foreach (var i in pedidodb2)
+                    {
+                        calendarDB2Dto.Add(new TPedidoEntregaCalendarDto()
+                        {
+                            Id = i.Id,
+                            IdProvedor = i.IdProveedor,
+                            Start = i.FechaProg,
+                            End = i.FechaProg,
+                            title= $"{i.ProveedorName} / {i.EstatusName} / {i.EstatusType}",
+                            FechaProg = i.FechaProg,
+                            FechaReal = i.FechaReal,
+                            Comment = i.Comentarios,
+                            EstatusName = i.EstatusName,
+                            Estatus = i.Estatus,
+                            IdSucursal= i.IdSucursal,
+                            Nombre = i.EstatusType,
+                            TFotosPedidosEntregas = i.TFotosPedidosEntregas,
+                            Color = colorsPalette.First(f=>f.Name.Equals(i.EstatusName)),
+                            Draggable = false,
+                        });
+
+                    }
+
+                    #endregion
+                    response.Result = calendarDB2Dto;
                     response.Message = "success";
                     response.Success = true;
                     break;
@@ -222,22 +296,50 @@ public class RemisionController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<Models.ApiResponse.ApiResponse<TPedidoEntregaUpadteDto>>> Put([FromBody] TPedidoEntregaUpadteDto dto, string dataBase)
+    public async Task<ActionResult<Models.ApiResponse.ApiResponse<TPedidoEntregaUpadteDto>>> Put([FromBody] TPedidoEntregaUpadteDto dto, [FromQuery] string dataBase)
     {
-        Models.ApiResponse.ApiResponse<TPedidoEntregaUpadteDto> response = new Models.ApiResponse.ApiResponse<TPedidoEntregaUpadteDto>();
+        var response = new Models.ApiResponse.ApiResponse<TPedidoEntregaUpadteDto>();
         try
         {
             switch (dataBase)
             {
                 case "DB1":
+                    foreach (var item in dto.TFotosPedidosEntregas)
+                    {
+                        if (_fotosPedidosEntregaDB1Repository.IsBase64(item.Foto) && item.Id == 0)
+                        {
+                            item.Foto = _fotosPedidosEntregaDB1Repository.UploadImageBase64(item.Foto, "Files/Alarmas/", item.Tipo);
+                            await _fotosPedidosEntregaDB1Repository.AddAsyn(_mapper.Map<TFotosPedidosEntrega>(item));
+                        }
+                        else
+                        {
+                            response.Success = false;
+                            response.Message = "Photo is not Base64";
+                            return StatusCode(415, response);
+                        }
+                    }
                     response.Result = _mapper.Map<TPedidoEntregaUpadteDto>(await _pedidosEntregaDB1Repository.UpdateAsync(_mapper.Map<biz.bd1.Entities.TPedidosEntrega>(dto), dto.Id));
                     response.Success = true;
-                    response.Message = "Record was updated succesfully.";
+                    response.Message = "Record was updated successfully.";
                     break;
                 case "DB2":
+                    foreach (var item in dto.TFotosPedidosEntregas)
+                    {
+                        if (_fotosPedidosEntregaDB2Repository.IsBase64(item.Foto) && item.Id == 0)
+                        {
+                            item.Foto = _fotosPedidosEntregaDB2Repository.UploadImageBase64(item.Foto, "Files/Alarmas/", item.Tipo);
+                            await _fotosPedidosEntregaDB2Repository.AddAsyn(_mapper.Map<biz.bd2.Entities.TFotosPedidosEntrega>(item));
+                        }
+                        else
+                        {
+                            response.Success = false;
+                            response.Message = "Photo is not Base64";
+                            return StatusCode(415, response);
+                        }
+                    }
                     response.Result = _mapper.Map<TPedidoEntregaUpadteDto>(await _pedidosEntregaDB2Repository.UpdateAsync(_mapper.Map<biz.bd2.Entities.TPedidosEntrega>(dto), dto.Id));
                     response.Success = true;
-                    response.Message = "Record was updated succesfully.";
+                    response.Message = "Record was updated successfully.";
                     break;
                 default:
                     break;
@@ -316,26 +418,53 @@ public class RemisionController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<ApiResponse<TPedidoEntregaDto>>> Post([FromBody] TPedidoEntregaDto pedido)
+    public async Task<ActionResult<ApiResponse<TPedidoEntregaDto>>> Post([FromBody] TPedidoEntregaDto pedido, [FromQuery] string dataBase)
     {
-        ApiResponse<TPedidoEntregaDto> response = new ApiResponse<TPedidoEntregaDto>();
+        var response = new ApiResponse<TPedidoEntregaDto>();
         try
         {
-            foreach (var item in pedido.TFotosPedidosEntregas)
+            var insertData = new TPedidoEntregaDto();
+            /*
+             * Identify where insert data if dataBase indicate which database insert record 
+             */
+            switch (dataBase)
             {
-                if (_pedidosEntregaDB1Repository.IsBase64(item.Foto))
-                {
-                    item.Foto = _pedidosEntregaDB1Repository.UploadImageBase64(item.Foto, "Files/Alarmas/", item.Tipo);
-                }
-                else
-                {
-                    response.Success = false;
-                    response.Message = "Photo is not Base64";
-                    return StatusCode(415, response);
-                }
+                case "DB1":
+                    foreach (var item in pedido.TFotosPedidosEntregas)
+                    {
+                        if (_pedidosEntregaDB1Repository.IsBase64(item.Foto))
+                        {
+                            item.Foto = _pedidosEntregaDB1Repository.UploadImageBase64(item.Foto, "Files/Alarmas/", item.Tipo);
+                        }
+                        else
+                        {
+                            response.Success = false;
+                            response.Message = "Photo is not Base64";
+                            return StatusCode(415, response);
+                        }
+                    }
+                    insertData = _mapper.Map<TPedidoEntregaDto>(await _pedidosEntregaDB1Repository.AddAsyn(_mapper.Map<TPedidosEntrega>(pedido)));
+                    break;
+                case "DB2":
+                    foreach (var item in pedido.TFotosPedidosEntregas)
+                    {
+                        if (_pedidosEntregaDB2Repository.IsBase64(item.Foto))
+                        {
+                            item.Foto = _pedidosEntregaDB2Repository.UploadImageBase64(item.Foto, "Files/Alarmas/", item.Tipo);
+                        }
+                        else
+                        {
+                            response.Success = false;
+                            response.Message = "Photo is not Base64";
+                            return StatusCode(415, response);
+                        }
+                    }
+                    insertData = _mapper.Map<TPedidoEntregaDto>(await _pedidosEntregaDB2Repository.AddAsyn(_mapper.Map<biz.bd2.Entities.TPedidosEntrega>(pedido)));
+                    break;
             }
 
-            response.Result = _mapper.Map<TPedidoEntregaDto>(await _pedidosEntregaDB1Repository.AddAsyn(_mapper.Map<TPedidosEntrega>(pedido)));
+
+            response.Result = insertData;
             response.Success = true;
             response.Message = "Record was added success";
         }

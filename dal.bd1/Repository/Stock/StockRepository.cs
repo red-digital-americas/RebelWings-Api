@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using biz.bd1.Entities;
+using biz.bd1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace dal.bd1.Repository.Stock
 {
@@ -162,10 +165,10 @@ namespace dal.bd1.Repository.Stock
 
             return _stock;
         }
-        public biz.bd1.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, int cantidad)
+        public biz.bd1.Models.StockDto UpdateStock(int codArticulo, string codAlmacen, double cantidad)
         {
             biz.bd1.Models.StockDto _stock = new biz.bd1.Models.StockDto();
-            //FECHA DE INVENTARIOS
+            // FECHA DE INVENTARIOS
             var tablaInv = DateTime.Now.Date.AddDays(-1);
             if (_context.Inventarios.FirstOrDefault(x => x.Codalmacen == codAlmacen && x.Fecha == DateTime.Now.Date) != null) {
               tablaInv  = _context.Inventarios.FirstOrDefault(x => x.Codalmacen == codAlmacen && x.Fecha == DateTime.Now.Date).Fecha;
@@ -249,6 +252,33 @@ namespace dal.bd1.Repository.Stock
             {
                 return _stock;
             }
+        }
+
+        public List<Mermas> GetMermas(int branch, DateTime initDate, DateTime endDate)
+        {
+            var mermas =
+                from moviment in _context.Moviments
+                join articulo1 in _context.Articulos1 on moviment.Codarticulo equals articulo1.Codarticulo
+                join rem in _context.RemCajasfronts on new
+                {
+                    Codalmmermas = EF.Functions.Collate(moviment.Codalmacendestino, "Modern_Spanish_CI_AS"),
+                    Ventas = EF.Functions.Collate(moviment.Codalmacenorigen, "Modern_Spanish_CI_AS")
+                } equals new
+                {
+                    Codalmmermas = rem.Codalmmermas,
+                    Ventas = rem.Codalmventas
+                }
+                join remFront in _context.RemFronts on rem.Idfront equals remFront.Idfront
+                where (moviment.Fecha >= initDate && moviment.Fecha <= endDate) && rem.Idfront == branch
+                orderby moviment.Fecha descending 
+                select new Mermas()
+                {
+                    Description = articulo1.Descripcion,
+                    Price = moviment.Precio.Value,
+                    Unity = moviment.Unidades.Value,
+                    UnitMeasure = articulo1.Unidadmedida
+                };
+            return mermas.ToList();
         }
     }
 }
