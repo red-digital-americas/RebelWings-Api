@@ -280,6 +280,18 @@ public class DashboardController : ControllerBase
                     break;
             }
 
+            foreach (var i in res.Performances)
+            {
+                res.Multi.Add(new BranchChartBarVerticalDto()
+                {
+                    Name = i.NameBranch,
+                    Series = new List<SerieDto>()
+                    {
+                        new(){ Name = "No Completado", Value = i.NoComplete },
+                        new(){ Name = "Completado", Value = i.Complete },
+                    }
+                });
+            }
             response.Result = res;
             response.Message = "Operation was success";
             response.Success = true;
@@ -346,6 +358,19 @@ public class DashboardController : ControllerBase
                     break;
                 default:
                     break;
+            }
+            
+            foreach (var i in res.Performances)
+            {
+                res.Multi.Add(new BranchChartBarVerticalDto()
+                {
+                    Name = i.NameBranch,
+                    Series = new List<SerieDto>()
+                    {
+                        new(){ Name = "No Completado", Value = i.NoComplete },
+                        new(){ Name = "Completado", Value = i.Complete },
+                    }
+                });
             }
 
             response.Result = res;

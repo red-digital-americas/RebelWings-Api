@@ -43,6 +43,7 @@ using api.rebel_wings.Models.ValidateAttendance;
 using api.rebel_wings.Models.ValidationGas;
 using api.rebel_wings.Models.WaitlistTable;
 using api.rebel_wings.Models.BanosMatutino;
+using api.rebel_wings.Models.Dashboard;
 using api.rebel_wings.Models.Mermas;
 using api.rebel_wings.Models.Stock;
 using api.rebel_wings.Models.WashBasinWithSoapPaper;
@@ -57,8 +58,11 @@ using Albaranes = api.rebel_wings.Models.Albaran.Albaranes;
 using Assistance = api.rebel_wings.Models.Dashboard.Assistance;
 using DashboardAdmin = api.rebel_wings.Models.Dashboard.DashboardAdmin;
 using DashboardAssistance = api.rebel_wings.Models.Dashboard.DashboardAssistance;
+using DashboardRegional = biz.rebel_wings.Models.Dashboard.DashboardRegional;
+using DashboardSupervisor = biz.rebel_wings.Models.Dashboard.DashboardSupervisor;
 using Inventario = biz.rebel_wings.Entities.Inventario;
 using Task = biz.rebel_wings.Entities.Task;
+using TaskPerShifts = biz.rebel_wings.Models.Dashboard.TaskPerShifts;
 
 namespace api.rebel_wings.Mapper
 {
@@ -205,6 +209,9 @@ namespace api.rebel_wings.Mapper
             CreateMap<Inventario, StockV2>().ReverseMap();
             CreateMap<Mermas, MermasDto>().ReverseMap();
             CreateMap<biz.bd2.Models.Mermas, MermasDto>().ReverseMap();
+            CreateMap<TaskNoComplete, TaskNoCompleteDto>().ReverseMap();
+            CreateMap<BranchChartBarVertical, BranchChartBarVerticalDto>().ReverseMap();
+            CreateMap<Serie, SerieDto>().ReverseMap();
         }
     }
 }

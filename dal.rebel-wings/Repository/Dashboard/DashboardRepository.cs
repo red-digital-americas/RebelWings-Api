@@ -1894,6 +1894,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         // Initialize Collections
         var tasksAll = new List<biz.rebel_wings.Models.Dashboard.Task>();
         var byBranches = new List<DashboardAdminPerformanceByBranch>();
+        var taskAllOmittedActivities = new List<biz.rebel_wings.Models.Dashboard.Task>();
         // Get branches from regional
         var branches = _context.CatSucursals.Where(f => f.UserId == regional).Select(s => s.BranchId).ToList();
         // Iterate by branch
@@ -1942,6 +1943,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Total = grp.Count()
                 })
                 .ToList();
+            
             // Calculate percentage
             totalTask = all.Count();
             foreach (var task in all)
@@ -1961,9 +1963,10 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                 byBranch.NoComplete += Decimal.Divide(task.NoComplete * percentageByTask, 100);
             }
 
-            byBranch.AverageEvaluation = surveys.Any() ? (decimal)surveys.Average() : 0;
+            byBranch.AverageEvaluation = surveys.Any() ? decimal.Round((decimal)surveys.Average(), 2, MidpointRounding.ToZero) : 0;
             
             byBranches.Add(byBranch);
+            taskAllOmittedActivities.AddRange(tasksAll);
             tasksAll.Clear();
 
         }
@@ -1975,6 +1978,19 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             dashboard.Complete += Decimal.Divide(performance.Complete * percentageByBranch, 100);
             dashboard.NoComplete += Decimal.Divide(performance.NoComplete * percentageByBranch, 100);
         }
+
+        #region Top 5 Omitted activities
+
+        dashboard.TopOmittedTask = taskAllOmittedActivities.GroupBy(g => g.Name).Select(s => new TaskNoComplete()
+        {
+            Name = s.First().Name,
+            Value = s.Count(c => c.PercentageComplete == 0)
+        })
+            .OrderByDescending(o=>o.Value)
+            .Take(5)
+            .ToList();
+
+        #endregion
 
         dashboard.AverageEvaluation = dashboard.Performances.Select(s => s.AverageEvaluation).Average();
 
@@ -1989,6 +2005,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         // Initialize Collections
         var tasksAll = new List<TaskPerShifts>();
         var byBranches = new List<DashboardAdminPerformanceByBranch>();
+        var taskAllOmittedActivities = new List<TaskPerShifts>();
         // Get branches from regional
         var branches = _context.CatSucursals.Where(f => f.UserId == regional).Select(s => s.BranchId).ToList();
         // Iterate by branch
@@ -2051,9 +2068,11 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                 byBranch.NoComplete += Decimal.Divide(task.NoComplete * percentageByTask, 100);
             }
             
-            byBranch.AverageEvaluation = surveys.Any() ? (decimal)surveys.Average() : 0;
-            
+            byBranch.AverageEvaluation = surveys.Any() ? decimal.Round((decimal)surveys.Average(), 2, MidpointRounding.ToZero) : 0;
+
             byBranches.Add(byBranch);
+            taskAllOmittedActivities.AddRange(tasksAll);
+            tasksAll.Clear();
 
         }
 
@@ -2064,6 +2083,19 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             dashboard.Complete += Decimal.Divide(performance.Complete * percentageByBranch, 100);
             dashboard.NoComplete += Decimal.Divide(performance.NoComplete * percentageByBranch, 100);
         }
+        
+        #region Top 5 Omitted activities
+
+        dashboard.TopOmittedTask = taskAllOmittedActivities.GroupBy(g => g.NameTask).Select(s => new TaskNoComplete()
+            {
+                Name = s.First().NameTask,
+                Value = s.Count(c => c.PercentageComplete == 0)
+            })
+            .OrderByDescending(o=>o.Value)
+            .Take(5)
+            .ToList();
+
+        #endregion
         
         dashboard.AverageEvaluation = dashboard.Performances.Select(s => s.AverageEvaluation).Average();
 
