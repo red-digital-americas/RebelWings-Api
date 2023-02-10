@@ -728,12 +728,12 @@ namespace api.rebel_wings.Controllers
                 var res = _stockRepository.GetAll()
                     .Where(x=> 
                         list.Select(s=>s.BranchId ).Contains(x.Branch.Value) 
-                        && x.CreatedDate >= dateInit.AbsoluteStart()
-                        && x.CreatedDate <= dateEnd.AbsoluteEnd())
+                        && x.CreatedDate >= dateInit.AddHours(17)
+                        && x.CreatedDate <= dateEnd.AddDays(1).AddHours(5))
                     .Select(s => new StockV2Response()
                     {
                         Id = s.Id,
-                        CreatedDate = s.CreatedDate,
+                        CreatedDate= s.CreatedDate.Hour < s.CreatedDate.AddHours(5).Hour ? s.CreatedDate.AddDays(-1) : s.CreatedDate,
                         CreatedBy = s.CreatedBy,
                         Articulo = s.Articulo,
                         Branch = s.Branch,
