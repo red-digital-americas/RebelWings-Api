@@ -16,5 +16,7 @@ namespace biz.rebel_wings.Repository.User
         string VerifyEmail(string email);
         string SendMail(string emailTo, string body, string subject);
         List<Entities.CatState> CatStateList();
+        List<biz.rebel_wings.Models.User.UserList> GetUserList();
+
     }
 }

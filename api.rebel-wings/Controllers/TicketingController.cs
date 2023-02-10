@@ -367,18 +367,29 @@ public class TicketingController : ControllerBase
     [ServiceFilterAttribute(typeof(ValidationFilterAttribute))]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<ApiResponse<List<TicketingGet>>> GetHistories([FromQuery] int[] ids, [FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+    public ActionResult<ApiResponse<List<TicketingGet>>> GetHistories([FromQuery] int[] ids, [FromQuery] DateTime startDate, [FromQuery] DateTime endDate, [FromQuery] int city)
     {
         var response = new ApiResponse<List<TicketingGet>>();
         try
         {
             //var list = _mapper.Map<List<TransfersListDto>>(_rhTrabRepository.GetBranchList());
+
             var list = _mapper.Map<List<TransferDto>>(_sucursalDB1Repository.GetBranchList());
+
+            if (city == 2)
+            {
+                list = _mapper.Map<List<TransferDto>>(_sucursalDB1Repository.GetBranchList());
+            }
+            else 
+            {
+                list = _mapper.Map<List<TransferDto>>(_sucursalDB2Repository.GetBranchList());
+            }
+            
 
             var queryable =
                 _ticketingRepository.GetAllIncluding(u => u.CreatedByNavigation, c => c.CategoryNavigation)
                     .Where(x => (!ids.Any() || ids.Contains(x.BranchId)) &&
-                                x.CreatedDate >= startDate.AbsoluteStart() && x.CreatedDate <= endDate.AbsoluteEnd())
+                                x.CreatedDate >= startDate.AbsoluteStart() && x.CreatedDate <= endDate.AbsoluteEnd() && x.CreatedByNavigation.StateId == city)
                     .Select(s => new TicketingGet()
                     {
                         Id = s.Id,
