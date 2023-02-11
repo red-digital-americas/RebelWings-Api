@@ -212,6 +212,8 @@ namespace api.rebel_wings.Mapper
             CreateMap<TaskNoComplete, TaskNoCompleteDto>().ReverseMap();
             CreateMap<BranchChartBarVertical, BranchChartBarVerticalDto>().ReverseMap();
             CreateMap<Serie, SerieDto>().ReverseMap();
+            CreateMap<DashboardAdminPerformance, DashboardAdminPerformanceDto>().ReverseMap();
+            CreateMap<DashboardAdminPerformanceByBranch, DashboardAdminPerformanceByBranchDto>().ReverseMap();
         }
     }
 }
