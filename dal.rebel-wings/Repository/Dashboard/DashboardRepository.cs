@@ -214,7 +214,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
 
         List<bool> list = new List<bool>();
         //MATUTINO
-        list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        ////ASISTENCIAS///list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.BranchId == id && x.CreatedByNavigation.StateId == city));
         list.Add(_context.ValidationGas.Any(x=> x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
         list.Add(_context.ToSetTables.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
         //list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.BranchId == id));
@@ -227,60 +227,82 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         //list.Add(_context.RequestTransfers.Any(x=> x.CreatedDate >= date && x.CreatedDate <= dateEnd && (x.ToBranchId == id || x.FromBranchId == id)));
 
         //VESPERTINO
-        list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        ////ASISTENCIAS///list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
         list.Add(_context.Tips.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.CashRegisterShortages.Any(x=> x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        //list.Add(_context.CashRegisterShortages.Any(x=> x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        ///VOLADO
+        var cascount = _context.CashRegisterShortages.Where(x => x.CreatedDate >= date && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city).Count();
+        int j = 0;
+        while (j < cascount)
+        {
+            list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+            j = j + 1;
+        }
         list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
         //INVENTARIOS
-        list.Add(_context.Inventarios.Any(x=> x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+        var invcount = _context.Inventarios.Where(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
+        int i = 0;
+        while (i < invcount) {
+            list.Add(_context.Inventarios.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
         list.Add(_context.TabletSafeKeepings.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
         list.Add(_context.LivingRoomBathroomCleanings.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
 
 
         //list.Add(_context.Alarms.Any(x=> x.CreatedDate >= date && x.CreatedDate <= dateEnd && x.BranchId == id));
 
-        var percetage = (decimal)list.Count(c => c.Equals(true)) * 100 / 12;
-        var resPercentage = (decimal)percetage - 100;
-        dashboardSupervisor.OmissionsActivities = Decimal.Negate(resPercentage);
+        //var percetage = (decimal)list.Count(c => c.Equals(true)) * 100 / list.Count;
+        //var resPercentage = (decimal)percetage - 100;
+        //dashboardSupervisor.OmissionsActivities = Decimal.Negate(resPercentage);
+
+        var percetage = list.Count(c => c.Equals(true));
+        
+        dashboardSupervisor.OmissionsActivities = percetage;
 
         #endregion
 
         #region Tasks
 
-        
+
 
         #region Start Morning
         var taskPerShiftsMorningList = new List<TaskPerShifts>();
-        var validateAttendanceList = _context.ValidateAttendances.Where(x =>
-            x.CreatedDate >= date 
-            && x.CreatedDate <= dateMiddle 
-            && x.BranchId == id
-            && x.CreatedByNavigation.StateId == city)
-            .Select(s => new TaskPerShifts()
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Status = true,
-                Supervisor =
-                    $"{s.CreatedByNavigation.Name} {s.CreatedByNavigation.LastName} {s.CreatedByNavigation.MotherName}",
-                Capture = _context.Users.Where(f=>f.Id == s.UpdatedBy).Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
-                NameTask = "ASISTENCIAS",
-                PercentageComplete = 100
-            }).ToList();
-        taskPerShiftsMorningList.AddRange(validateAttendanceList.Any()
-            ? validateAttendanceList
-            : new TaskPerShifts[] { new TaskPerShifts()
-            {
-                Date = dateMiddle,
-                Detail = 0,
-                Status = false,
-                Supervisor = _context.Users.Where(f=> f.RoleId == 1 && f.StateId == city && f.SucursalId == id)
-                    .Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
-                NameTask = "ASISTENCIAS",
-                PercentageComplete = 0
-            } });
-        
-        var validationGasList= _context.ValidationGas.Where(x =>
+
+        ///ASISTENCIAS
+        /////////////////////////////////////////////////////////////////////////////
+        //var validateAttendanceList = _context.ValidateAttendances.Where(x =>
+        //    x.CreatedDate >= date 
+        //    && x.CreatedDate <= dateMiddle 
+        //    && x.BranchId == id
+        //    && x.CreatedByNavigation.StateId == city)
+        //    .Select(s => new TaskPerShifts()
+        //    {
+        //        Date = s.CreatedDate,
+        //        Detail = s.Id,
+        //        Status = true,
+        //        Supervisor =
+        //            $"{s.CreatedByNavigation.Name} {s.CreatedByNavigation.LastName} {s.CreatedByNavigation.MotherName}",
+        //        Capture = _context.Users.Where(f=>f.Id == s.UpdatedBy).Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
+        //        NameTask = "ASISTENCIAS",
+        //        PercentageComplete = 100
+        //    }).ToList();
+        //taskPerShiftsMorningList.AddRange(validateAttendanceList.Any()
+        //    ? validateAttendanceList
+        //    : new TaskPerShifts[] { new TaskPerShifts()
+        //    {
+        //        Date = dateMiddle,
+        //        Detail = 0,
+        //        Status = false,
+        //        Supervisor = _context.Users.Where(f=> f.RoleId == 1 && f.StateId == city && f.SucursalId == id)
+        //            .Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
+        //        NameTask = "ASISTENCIAS",
+        //        PercentageComplete = 0
+        //    } });
+        //////////////////////////////////////////////////////////////////////////
+        ///ASISTENCIAS
+
+        var validationGasList = _context.ValidationGas.Where(x =>
             x.CreatedDate >= date
             && x.CreatedDate <= dateMiddle
             && x.Branch == id
@@ -455,37 +477,42 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         #endregion
         #region Start Evening
         var taskPerShiftsEveningList = new List<TaskPerShifts>();
-        var validateAttendancesList = _context.ValidateAttendances.Where(x =>
-                x.CreatedDate >= dateMiddle 
-                && x.CreatedDate <= dateEnd 
-                && x.BranchId == id
-                && x.CreatedByNavigation.StateId == city)
-            .Select(s => new TaskPerShifts() 
-            {
-                Date = dateMiddle,
-                Detail = s.Id,
-                Status = true,
-                Supervisor =
-                    $"{s.CreatedByNavigation.Name} {s.CreatedByNavigation.LastName} {s.CreatedByNavigation.MotherName}",
-                Capture = _context.Users.Where(f=>f.Id == s.UpdatedBy).Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
-                NameTask = "ASISTENCIAS",
-                PercentageComplete = 100
-            }).ToList();
-        taskPerShiftsEveningList.AddRange(validateAttendancesList.Any()
-            ? validateAttendancesList
-            : new TaskPerShifts[]
-            {
-                new TaskPerShifts()
-                {
-                    Date = dateMiddle,
-                    Detail = 0,
-                    Status = false,
-                    Supervisor = _context.Users.Where(f=> f.RoleId == 1 && f.StateId == city && f.SucursalId == id)
-                        .Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
-                    NameTask = "ASISTENCIAS",
-                    PercentageComplete = 0
-                }
-            });
+
+        ///ASISTENCIAS
+        //////////////////////////////////////////////////////////////////////////
+        //var validateAttendancesList = _context.ValidateAttendances.Where(x =>
+        //        x.CreatedDate >= dateMiddle 
+        //        && x.CreatedDate <= dateEnd 
+        //        && x.BranchId == id
+        //        && x.CreatedByNavigation.StateId == city)
+        //    .Select(s => new TaskPerShifts() 
+        //    {
+        //        Date = dateMiddle,
+        //        Detail = s.Id,
+        //        Status = true,
+        //        Supervisor =
+        //            $"{s.CreatedByNavigation.Name} {s.CreatedByNavigation.LastName} {s.CreatedByNavigation.MotherName}",
+        //        Capture = _context.Users.Where(f=>f.Id == s.UpdatedBy).Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
+        //        NameTask = "ASISTENCIAS",
+        //        PercentageComplete = 100
+        //    }).ToList();
+        //taskPerShiftsEveningList.AddRange(validateAttendancesList.Any()
+        //    ? validateAttendancesList
+        //    : new TaskPerShifts[]
+        //    {
+        //        new TaskPerShifts()
+        //        {
+        //            Date = dateMiddle,
+        //            Detail = 0,
+        //            Status = false,
+        //            Supervisor = _context.Users.Where(f=> f.RoleId == 1 && f.StateId == city && f.SucursalId == id)
+        //                .Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
+        //            NameTask = "ASISTENCIAS",
+        //            PercentageComplete = 0
+        //        }
+        //    });
+        //////////////////////////////////////////////////////////////////////////////////
+        ///ASISTENCIAS
 
         // var stockChickensListMorning = _context.StockChickens.Where(x =>
         //     x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id).Select(s => new TaskPerShifts()
@@ -668,7 +695,8 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             && x.CreatedByNavigation.StateId == city)
             .Select(s => new TaskPerShifts()
             {
-                Date = dateMiddle,
+                //Date = dateMiddle,
+                Date = s.CreatedDate,
                 Detail = s.Id,
                 Status = true,
                 Supervisor =
@@ -754,7 +782,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         //     });
 
         var cashRegisterShortagesList = _context.CashRegisterShortages.Where(x =>
-            x.CreatedDate >= dateMiddle 
+            x.CreatedDate >= date 
             && x.CreatedDate <= dateEnd
             && x.BranchId == id
             && x.CreatedByNavigation.StateId == city)
@@ -820,6 +848,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
     {
         DateTime iniDate = dateStart;
         dateStart = dateStart.AddHours(7);
+        DateTime dateMiddle = iniDate.AddHours(17);
         dateEnd = dateEnd.AddHours(4);
         var dashboardSupervisor = new DashboardSupervisor();
         var taskPerShiftsList = new List<TaskPerShifts>();
@@ -861,12 +890,12 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
           
 
         List<bool> list = new List<bool>();
-        list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.ValidationGas.Any(x=> x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.ToSetTables.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.Branch == id));
+        //list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.ValidationGas.Any(x=> x.CreatedDate >= dateStart && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.ToSetTables.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateMiddle && x.Branch == id));
         //list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.BanosMatutinos.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.BanosMatutinos.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
 
         //list.Add(_context.StockChickens.Any(x=> x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
 
@@ -883,13 +912,20 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         //    && x.CreatedByNavigation.StateId == city)
         //);
 
-        list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.Tips.Any(x=>  x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd  && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.TabletSafeKeepings.Any(x=> x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.LivingRoomBathroomCleanings.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.Inventarios.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+        //list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.Tips.Any(x=>  x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd  && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.TabletSafeKeepings.Any(x=> x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.LivingRoomBathroomCleanings.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+        list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        //INVENTARIOS
+        var invcount = _context.Inventarios.Where(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
+        int i = 0;
+        while (i < invcount)
+        {
+            list.Add(_context.Inventarios.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
 
 
         //list.Add(_context.Alarms.Any(x=> 
@@ -900,9 +936,13 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         //);
 
 
-        var percentage = (decimal)list.Count(c => c.Equals(true)) * 100 / 12;
-        var resPercentage = (decimal)percentage - 100;
-        dashboardSupervisor.OmissionsActivities = Decimal.Negate(resPercentage);
+        //var percentage = (decimal)list.Count(c => c.Equals(true)) * 100 / list.Count;
+        //var resPercentage = (decimal)percentage - 100;
+        //dashboardSupervisor.OmissionsActivities = Decimal.Negate(resPercentage);
+
+        var percentage = list.Count(c => c.Equals(true));
+        
+        dashboardSupervisor.OmissionsActivities = percentage;
 
         #endregion
 
@@ -927,7 +967,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             .ThenBy(t=>t.Date)
             .ToList();;
 
-        dashboardSupervisor.OmissionsActivities = omitidas / dias;
+        dashboardSupervisor.OmissionsActivities = omitidas ;
 
         // Check If the filter Done or Not is required
         if (isDone != 2)
@@ -2086,6 +2126,8 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
 
     public DashboardAdminPerformance GetAdminPerformanceSupervisor(int city, int regional, DateTime dateStart, DateTime dateEnd)
     {
+        dateStart = dateStart.AddHours(7);
+        dateEnd = dateEnd.AddHours(4);
         var dashboard = new DashboardAdminPerformance();
         dashboard.Id = regional;
         var totalTask = 0;
@@ -2104,9 +2146,9 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             var dateTwo = dateEnd;
             List<int> surveys = new List<int>();
             // Iterate by Day 
-            while (dateOne <= dateTwo)
+            while (dateOne <= dateTwo.AddHours(-4))
             {
-                var dashboardByDay = GetSupervisors(branch, dateOne.Date, dateOne.Date.AddDays(1).AddTicks(-1), city);
+                var dashboardByDay = GetSupervisors(branch, dateOne.Date, dateOne, city);
                 tasksAll.AddRange(dashboardByDay.TasksMorningsCollection);
                 tasksAll.AddRange(dashboardByDay.TasksEveningsCollection);
                 #region Average Evaluation
@@ -2114,7 +2156,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                 var i = _context.SatisfactionSurveys
                     .Where(x => 
                         x.CreatedDate.Date >= dateOne.Date 
-                        && x.CreatedDate.Date <= dateOne.Date.AddDays(1).AddTicks(-1)
+                        && x.CreatedDate.Date <= dateOne.Date.AddDays(1).AddHours(4)
                         && x.BranchId == branch
                         && _context.Users.Any(y=>
                             y.Id == x.UpdatedBy 
@@ -2129,15 +2171,24 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                 dateOne = dateOne.AddDays(1);
             }
             byBranch.IdBranch = branch;
-            var all = tasksAll.GroupBy(g=>g.NameTask).Select(grp => new{
-                    number = grp.Key,
-                    NoComplete = grp.Count(c=>c.PercentageComplete == 0),
-                    Complete = grp.Count(c=>c.PercentageComplete == 100),
-                    Total = grp.Count()
-                })
+            var all = tasksAll.Select(grp => new
+            {
+                number = grp.NameTask,
+                NoComplete = grp.Status == false ? 1 : 0,
+                Complete = grp.Status == true ? 1:0,
+                Total = 1
+            })
                 .ToList();
+            //var all = tasksAll.GroupBy(g => g.NameTask).Select(grp => new
+            //{
+            //    number = grp.Key,
+            //    NoComplete = grp.Count(c => c.PercentageComplete == 0),
+            //    Complete = grp.Count(c => c.PercentageComplete == 100),
+            //    Total = grp.Count()
+            //})
+                //.ToList();
             // Calculate percentage
-            totalTask = all.Count();
+            totalTask = 0;
             foreach (var task in all)
             {
                 byTask.Add(new PerformanceByTask()
@@ -2145,10 +2196,11 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Complete = Decimal.Divide(task.Complete * 100, task.Total),
                     NoComplete = Decimal.Divide(task.NoComplete * 100, task.Total)
                 });
+                totalTask = totalTask + task.Total;
             }
 
             decimal percentageByTask = Decimal.Divide(1 * 100, totalTask);
-            percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
+            //percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
             foreach (var task in byTask)
             {
                 byBranch.Complete += Decimal.Divide(task.Complete * percentageByTask, 100);

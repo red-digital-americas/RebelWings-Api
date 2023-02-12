@@ -325,7 +325,7 @@ public class DashboardController : ControllerBase
         var response = new ApiResponse<DashboardAdminPerformanceDto>();
         try
         {
-            var res = _mapper.Map<DashboardAdminPerformanceDto>(_dashboardRepository.GetAdminPerformanceSupervisor(city, regional, startDate, endDate));
+            var res = _mapper.Map<DashboardAdminPerformanceDto>(_dashboardRepository.GetAdminPerformanceSupervisor(city, regional, startDate.AbsoluteStart(), endDate.AbsoluteEnd()));
             switch (city)
             {
                 case 1:
