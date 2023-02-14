@@ -23,6 +23,11 @@ namespace biz.rebel_wings.Entities
             CatStatusValidateAttendances = new HashSet<CatStatusValidateAttendance>();
             CatSucursals = new HashSet<CatSucursal>();
             Inventarios = new HashSet<Inventario>();
+            Orders = new HashSet<Order>();
+            Fryers = new HashSet<FryerCleaning>();
+            ProductsInOrders = new HashSet<CompleteProductsInOrder>();
+            Fridges = new HashSet<Fridge>();
+            Precookeds = new HashSet<PrecookedChicken>();
             LivingRoomBathroomCleanings = new HashSet<LivingRoomBathroomCleaning>();
             PhotoCashRegisterShortages = new HashSet<PhotoCashRegisterShortage>();
             PhotoLivingRoomBathroomCleanings = new HashSet<PhotoLivingRoomBathroomCleaning>();
@@ -83,6 +88,11 @@ namespace biz.rebel_wings.Entities
         public virtual ICollection<CatStatusValidateAttendance> CatStatusValidateAttendances { get; set; }
         public virtual ICollection<CatSucursal> CatSucursals { get; set; }
         public virtual ICollection<Inventario> Inventarios { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Fridge> Fridges  { get; set; }
+        public virtual ICollection<FryerCleaning> Fryers { get; set; }
+        public virtual ICollection<PrecookedChicken> Precookeds { get; set; }
+        public virtual ICollection<CompleteProductsInOrder> ProductsInOrders { get; set; }
         public virtual ICollection<LivingRoomBathroomCleaning> LivingRoomBathroomCleanings { get; set; }
         public virtual ICollection<PhotoCashRegisterShortage> PhotoCashRegisterShortages { get; set; }
         public virtual ICollection<PhotoLivingRoomBathroomCleaning> PhotoLivingRoomBathroomCleanings { get; set; }

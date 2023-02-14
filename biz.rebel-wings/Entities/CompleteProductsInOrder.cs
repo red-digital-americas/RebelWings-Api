@@ -21,6 +21,8 @@ namespace biz.rebel_wings.Entities
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
 
+        public virtual User CreatedByNavigation { get; set; } = null!;
+
         public virtual ICollection<PhotoCompleteProductsInOrder> PhotoCompleteProductsInOrders { get; set; }
     }
 }

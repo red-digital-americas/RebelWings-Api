@@ -213,13 +213,48 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         
 
         List<bool> list = new List<bool>();
+        var count = 0;
+        var i = 0;
         //MATUTINO
         ////ASISTENCIAS///list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.ValidationGas.Any(x=> x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.ToSetTables.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+        
+        ///GAS  
+        count = _context.ValidationGas.Where(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
+        while (i < count)
+        {
+            list.Add(_context.ValidationGas.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
+        
+        ///APERTURA
+        count = _context.ToSetTables.Where(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
+        i = 0;
+        while (i < count)
+        {
+            list.Add(_context.ToSetTables.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
+
         //list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.BranchId == id));
-        list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.BanosMatutinos.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+
+        ///EN ESPERA
+        count = _context.WaitlistTables.Where(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
+        i = 0;
+        while (i < count)
+        {
+            list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
+
+        ///BAÑOS MATUTINOS
+        
+        count = _context.BanosMatutinos.Where(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
+        i = 0;
+        while (i < count)
+        {
+            list.Add(_context.BanosMatutinos.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateMiddle && x.Branch == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
 
 
         //list.Add(_context.StockChickens.Any(x=> x.CreatedDate >= date && x.CreatedDate <= dateEnd && x.Branch == id));
@@ -228,26 +263,60 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
 
         //VESPERTINO
         ////ASISTENCIAS///list.Add(_context.ValidateAttendances.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.Tips.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+        
+        ///PROPINA
+        count = _context.Tips.Where(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city).Count();
+        i = 0;
+        while (i < count)
+        {
+            list.Add(_context.Tips.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
+
         //list.Add(_context.CashRegisterShortages.Any(x=> x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
         ///VOLADO
         var cascount = _context.CashRegisterShortages.Where(x => x.CreatedDate >= date && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city).Count();
         int j = 0;
         while (j < cascount)
         {
-            list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+            list.Add(_context.CashRegisterShortages.Any(x => x.CreatedDate >= date && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
             j = j + 1;
         }
-        list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+
+        ///EN ESPERA
+        count = _context.WaitlistTables.Where(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
+        i = 0;
+        while (i < count)
+        {
+            list.Add(_context.WaitlistTables.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
+
         //INVENTARIOS
         var invcount = _context.Inventarios.Where(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city).Count();
-        int i = 0;
+        i = 0;
         while (i < invcount) {
             list.Add(_context.Inventarios.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.Branch == id && x.CreatedByNavigation.StateId == city));
             i = i + 1;
         }
-        list.Add(_context.TabletSafeKeepings.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
-        list.Add(_context.LivingRoomBathroomCleanings.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+
+        ///TABLETAS
+        count = _context.TabletSafeKeepings.Where(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city).Count();
+        i = 0;
+        while (i < count)
+        {
+            list.Add(_context.TabletSafeKeepings.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
+
+        ///BAÑOS VESPERTINO
+        count = _context.LivingRoomBathroomCleanings.Where(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city).Count();
+        i = 0;
+        while (i < count)
+        {
+            list.Add(_context.LivingRoomBathroomCleanings.Any(x => x.CreatedDate >= dateMiddle && x.CreatedDate <= dateEnd && x.BranchId == id && x.CreatedByNavigation.StateId == city));
+            i = i + 1;
+        }
 
 
         //list.Add(_context.Alarms.Any(x=> x.CreatedDate >= date && x.CreatedDate <= dateEnd && x.BranchId == id));
@@ -438,25 +507,25 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                 PercentageComplete = 0
             } });
         
-        var cashPerShiftsList = _context.CashRegisterShortages.Where(x =>
-            x.CreatedDate >= date
-            && x.CreatedDate <= dateMiddle
-            && x.BranchId == id
-            && x.CreatedByNavigation.StateId == city)
-            .Select(s => new TaskPerShifts()
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Status = true,
-                Supervisor =
-                    $"{s.CreatedByNavigation.Name} {s.CreatedByNavigation.LastName} {s.CreatedByNavigation.MotherName}",
-                Capture = _context.Users.Where(f=>f.Id == s.UpdatedBy).Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
-                NameTask = "VOLADO",
-                PercentageComplete = 100
-            }).ToList();
-        if (cashPerShiftsList.Count != 0) {
-            taskPerShiftsMorningList.AddRange(cashPerShiftsList);
-        }
+        //var cashPerShiftsList = _context.CashRegisterShortages.Where(x =>
+        //    x.CreatedDate >= date
+        //    && x.CreatedDate <= dateMiddle
+        //    && x.BranchId == id
+        //    && x.CreatedByNavigation.StateId == city)
+        //    .Select(s => new TaskPerShifts()
+        //    {
+        //        Date = s.CreatedDate,
+        //        Detail = s.Id,
+        //        Status = true,
+        //        Supervisor =
+        //            $"{s.CreatedByNavigation.Name} {s.CreatedByNavigation.LastName} {s.CreatedByNavigation.MotherName}",
+        //        Capture = _context.Users.Where(f=>f.Id == s.UpdatedBy).Select(_s=> $"{_s.Name} {_s.LastName} {_s.MotherName}").First(),
+        //        NameTask = "VOLADO",
+        //        PercentageComplete = 100
+        //    }).ToList();
+        //if (cashPerShiftsList.Count != 0) {
+        //    taskPerShiftsMorningList.AddRange(cashPerShiftsList);
+        //}
         //taskPerShiftsMorningList.AddRange(cashPerShiftsList.Any()
         //    ? cashPerShiftsList
         //    : new TaskPerShifts[]
@@ -959,11 +1028,11 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             dias = dias == 0 ? 1 : dias + 1;
         }
         dashboardSupervisor.TasksEveningsCollection = taskPerShiftsEveningList
-            .OrderBy(g=> g.NameTask)
+            .OrderBy(g=> g.Date)
             .ThenBy(t=>t.Date)
             .ToList();
         dashboardSupervisor.TasksMorningsCollection = taskPerShiftsMorningList
-            .OrderBy(g=> g.NameTask)
+            .OrderBy(g=> g.Date)
             .ThenBy(t=>t.Date)
             .ToList();;
 
@@ -986,11 +1055,14 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
     {
         var dashboardRegional = new DashboardRegional();
 
+        date = date.AddHours(5);
+        dateEnd = dateEnd.AddDays(1).AddHours(5);
+
         #region Tickets
 
         dashboardRegional.Tickets = 0;
         // dashboardRegional.Tickets  = _context.Ticketings.Count(c =>
-            // c.BranchId == id && c.Status == true && c.CreatedDate >= date && c.CreatedDate <= dateEnd);
+        // c.BranchId == id && c.Status == true && c.CreatedDate >= date && c.CreatedDate <= dateEnd);
 
         #endregion
 
@@ -1003,41 +1075,42 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         //     .Count(x => x.BranchId == id && x.CreatedDate >= date && x.CreatedDate <= dateEnd);
         // dashboardRegional.AverageEvaluation = totals > 0 ? (decimal)success / totals : 0;
         dashboardRegional.AverageEvaluation = 0;
-        
+
         #endregion
 
         #region Omissions Activities
 
-        // var activities = new List<bool>();
-        // activities.Add(_context.Orders.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.Fridges.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.PrecookedChickens.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.CompleteProductsInOrders.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.FryerCleanings.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        //
-        // activities.Add(_context.PeopleCountings.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.SatisfactionSurveys.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.GeneralCleanings.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.Stations.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.DrinksTemperatures.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.AudioVideos.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.Spotlights.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.BarCleanings.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.FridgeSalons.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        //
-        // activities.Add(_context.BathRoomsOverallStatuses.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.WashBasinWithSoapPapers.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        //
-        // activities.Add(_context.TicketTables.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.EntriesChargedAsDeliveryNotes.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.OrderScheduleReviews.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // activities.Add(_context.CheckTables.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        var activities = new List<bool>();
+        activities.Add(_context.Orders.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd && a.CreatedByNavigation.StateId == city));
+        activities.Add(_context.Fridges.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd && a.CreatedByNavigation.StateId == city));
+        activities.Add(_context.PrecookedChickens.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd && a.CreatedByNavigation.StateId == city));
+        activities.Add(_context.CompleteProductsInOrders.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd && a.CreatedByNavigation.StateId == city));
+        activities.Add(_context.FryerCleanings.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd && a.CreatedByNavigation.StateId == city));
+
+        activities.Add(_context.PeopleCountings.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd ));
+        activities.Add(_context.SatisfactionSurveys.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.GeneralCleanings.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.Stations.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.DrinksTemperatures.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.AudioVideos.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.Spotlights.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.BarCleanings.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.FridgeSalons.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+
+        activities.Add(_context.BathRoomsOverallStatuses.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.WashBasinWithSoapPapers.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+
+        activities.Add(_context.TicketTables.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.EntriesChargedAsDeliveryNotes.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.OrderScheduleReviews.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
+        activities.Add(_context.CheckTables.Any(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
         //
         // activities.Add(_context.Kitchens.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
         // activities.Add(_context.Salons.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
         // activities.Add(_context.Bathrooms.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
         // activities.Add(_context.Bars.Any(a=>a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd));
-        // var totalActivities = activities.Count;
+        var totalActivities = 0;
+        totalActivities = activities.Count(c => c.Equals(true));
         // var validateActivities = activities.Count(c => c.Equals(true));
         // var percentage = (decimal)validateActivities * 100 / totalActivities;
         // var resPercentage = percentage - 100;
@@ -1049,27 +1122,28 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         #region Tasks
 
         var tasks = new List<biz.rebel_wings.Models.Dashboard.Task>();
+        if (totalActivities != 0)
+        {
+            #region Tasks Kitchen
 
-        #region Tasks Kitchen
-
-        var ordersList = _context.Orders.Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "TIEMPOS",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(ordersList.Any()
-            ? ordersList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var ordersList = _context.Orders.Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "TIEMPOS",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(ordersList.Any()
+                ? ordersList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1079,26 +1153,26 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id)  && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var fridgesList = _context.Fridges.Where(a =>
-                a.BranchId == id 
-                && a.CreatedDate >= date
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "REFRIS",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(fridgesList.Any()
-            ? fridgesList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var fridgesList = _context.Fridges.Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "REFRIS",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(fridgesList.Any()
+                ? fridgesList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1108,26 +1182,26 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id)  && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var precookedChickensList = _context.PrecookedChickens.Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "PRECOCCIÓN",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(precookedChickensList.Any()
-            ? precookedChickensList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var precookedChickensList = _context.PrecookedChickens.Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "PRECOCCIÓN",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(precookedChickensList.Any()
+                ? precookedChickensList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1137,53 +1211,53 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id)  && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        // var completeProductInOrdersList = _context.CompleteProductsInOrders
-        //     .Where(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd)
-        //     .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-        //     {
-        //         Date = s.CreatedDate,
-        //         Detail = s.Id,
-        //         Name = "Productos completos y en Órden",
-        //         Regional = $"{_context.Users.First(f => f.Id == s.CreatedBy).Name}",
-        //         Status = 1,
-        //         PercentageComplete = 100
-        //     }).ToList();
-        // tasks.AddRange(completeProductInOrdersList.Any()
-        //     ? completeProductInOrdersList
-        //     : new biz.rebel_wings.Models.Dashboard.Task[]
-        //     {
-        //         new biz.rebel_wings.Models.Dashboard.Task()
-        //         {
-        //             Date = date,
-        //             Detail = 0,
-        //             Status = 0,
-        //             Name = "Productos completos y en Órden",
-        //             Regional = "",
-        //             PercentageComplete = 0
-        //         }
-        //     });
+            // var completeProductInOrdersList = _context.CompleteProductsInOrders
+            //     .Where(a => a.BranchId == id && a.CreatedDate >= date && a.CreatedDate <= dateEnd)
+            //     .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+            //     {
+            //         Date = s.CreatedDate,
+            //         Detail = s.Id,
+            //         Name = "Productos completos y en Órden",
+            //         Regional = $"{_context.Users.First(f => f.Id == s.CreatedBy).Name}",
+            //         Status = 1,
+            //         PercentageComplete = 100
+            //     }).ToList();
+            // tasks.AddRange(completeProductInOrdersList.Any()
+            //     ? completeProductInOrdersList
+            //     : new biz.rebel_wings.Models.Dashboard.Task[]
+            //     {
+            //         new biz.rebel_wings.Models.Dashboard.Task()
+            //         {
+            //             Date = date,
+            //             Detail = 0,
+            //             Status = 0,
+            //             Name = "Productos completos y en Órden",
+            //             Regional = "",
+            //             PercentageComplete = 0
+            //         }
+            //     });
 
-        var fryerCleaningsList = _context.FryerCleanings
-            .Where(a =>
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "FREIDORAS",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(fryerCleaningsList.Any()
-            ? fryerCleaningsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var fryerCleaningsList = _context.FryerCleanings
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "FREIDORAS",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(fryerCleaningsList.Any()
+                ? fryerCleaningsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1193,32 +1267,32 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id)  && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
-        dashboardRegional.TasksKitchenCollection = tasks.OrderBy(o=>o.Date).ToList();
-        tasks.Clear();
+                });
+            dashboardRegional.TasksKitchenCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
 
-        #endregion
+            #endregion
 
-        #region Tasks Salon
+            #region Tasks Salon
 
-        var peopleCountingList = _context.PeopleCountings.Where(a =>
-                a.BranchId == id
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=> x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "COMENSALES",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(peopleCountingList.Any()
-            ? peopleCountingList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var peopleCountingList = _context.PeopleCountings.Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "COMENSALES",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(peopleCountingList.Any()
+                ? peopleCountingList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1228,26 +1302,26 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id)  && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var satisfactionSurveysList = _context.SatisfactionSurveys.Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "ENCUESTA",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2 && f.CatSucursals.Select(s=>s.BranchId).Contains(id) ).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(satisfactionSurveysList.Any()
-            ? satisfactionSurveysList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var satisfactionSurveysList = _context.SatisfactionSurveys.Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "ENCUESTA",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2 && f.CatSucursals.Select(s => s.BranchId).Contains(id)).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(satisfactionSurveysList.Any()
+                ? satisfactionSurveysList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1257,27 +1331,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var generalCleaningsList = _context.GeneralCleanings
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "LIMPIEZA",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2 && f.CatSucursals.Select(s=>s.BranchId).Contains(id)).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(generalCleaningsList.Any()
-            ? generalCleaningsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var generalCleaningsList = _context.GeneralCleanings
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "LIMPIEZA",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2 && f.CatSucursals.Select(s => s.BranchId).Contains(id)).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(generalCleaningsList.Any()
+                ? generalCleaningsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1287,27 +1361,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var stationsList = _context.Stations
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "ESTACION",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(stationsList.Any()
-            ? stationsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var stationsList = _context.Stations
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "ESTACION",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s => s.BranchId).Contains(id) && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(stationsList.Any()
+                ? stationsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1317,27 +1391,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var drinksTemperaturesList = _context.DrinksTemperatures
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "BEBIDAS",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(drinksTemperaturesList.Any()
-            ? drinksTemperaturesList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var drinksTemperaturesList = _context.DrinksTemperatures
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "BEBIDAS",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s => s.BranchId).Contains(id) && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(drinksTemperaturesList.Any()
+                ? drinksTemperaturesList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1347,27 +1421,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var audioVideosList = _context.AudioVideos
-            .Where(a =>
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "AUDIO Y VIDEO",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(audioVideosList.Any()
-            ? audioVideosList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var audioVideosList = _context.AudioVideos
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "AUDIO Y VIDEO",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s => s.BranchId).Contains(id) && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(audioVideosList.Any()
+                ? audioVideosList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1377,27 +1451,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var spotlightsList = _context.Spotlights
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "ILUMINACION",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(spotlightsList.Any()
-            ? spotlightsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var spotlightsList = _context.Spotlights
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "ILUMINACION",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s => s.BranchId).Contains(id) && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(spotlightsList.Any()
+                ? spotlightsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1407,27 +1481,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var barCleaningsList = _context.BarCleanings
-            .Where(a =>
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "BARRA",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(barCleaningsList.Any()
-            ? barCleaningsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var barCleaningsList = _context.BarCleanings
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "BARRA",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s => s.BranchId).Contains(id) && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(barCleaningsList.Any()
+                ? barCleaningsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1437,27 +1511,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var fridgeSalonsList = _context.FridgeSalons
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "REFRIS",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(fridgeSalonsList.Any()
-            ? fridgeSalonsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var fridgeSalonsList = _context.FridgeSalons
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "REFRIS",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(fridgeSalonsList.Any()
+                ? fridgeSalonsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1467,33 +1541,33 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
-        dashboardRegional.TasksSalonCollection = tasks.OrderBy(o=>o.Date).ToList();
-        tasks.Clear();
+                });
+            dashboardRegional.TasksSalonCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
 
-        #endregion
+            #endregion
 
-        #region Tasks Bathrooms
+            #region Tasks Bathrooms
 
-        var bathRoomsOverallStatusesList = _context.BathRoomsOverallStatuses
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "BAÑOS",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s=>s.BranchId).Contains(id)).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(bathRoomsOverallStatusesList.Any()
-            ? bathRoomsOverallStatusesList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var bathRoomsOverallStatusesList = _context.BathRoomsOverallStatuses
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "BAÑOS",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.CatSucursals.Select(s => s.BranchId).Contains(id)).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(bathRoomsOverallStatusesList.Any()
+                ? bathRoomsOverallStatusesList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1503,27 +1577,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var washBasinSoapPapersList = _context.WashBasinWithSoapPapers
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "LAVABOS",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(washBasinSoapPapersList.Any()
-            ? washBasinSoapPapersList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var washBasinSoapPapersList = _context.WashBasinWithSoapPapers
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "LAVABOS",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(washBasinSoapPapersList.Any()
+                ? washBasinSoapPapersList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1533,33 +1607,33 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
-        dashboardRegional.TasksBathroomsCollection = tasks.OrderBy(o=>o.Date).ToList();
-        tasks.Clear();
+                });
+            dashboardRegional.TasksBathroomsCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
 
-        #endregion
+            #endregion
 
-        #region Task Systems
+            #region Task Systems
 
-        var ticketTablesList = _context.TicketTables
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "TICKET VS MESA",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(ticketTablesList.Any()
-            ? ticketTablesList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var ticketTablesList = _context.TicketTables
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "TICKET VS MESA",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(ticketTablesList.Any()
+                ? ticketTablesList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1569,27 +1643,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var entriesChargedAsDeliveryNotesList = _context.EntriesChargedAsDeliveryNotes
-            .Where(a =>
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "ENTRADAS ALBARÁN",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2 && f.CatSucursals.Select(s=>s.BranchId).Contains(id)).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(entriesChargedAsDeliveryNotesList.Any()
-            ? entriesChargedAsDeliveryNotesList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var entriesChargedAsDeliveryNotesList = _context.EntriesChargedAsDeliveryNotes
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "ENTRADAS ALBARÁN",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2 && f.CatSucursals.Select(s => s.BranchId).Contains(id)).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(entriesChargedAsDeliveryNotesList.Any()
+                ? entriesChargedAsDeliveryNotesList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1599,27 +1673,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var orderScheduleReviewsList = _context.OrderScheduleReviews
-            .Where(a =>
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "REVISIÓN CALENDARIO",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(orderScheduleReviewsList.Any()
-            ? orderScheduleReviewsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var orderScheduleReviewsList = _context.OrderScheduleReviews
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "REVISIÓN CALENDARIO",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(orderScheduleReviewsList.Any()
+                ? orderScheduleReviewsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1629,27 +1703,27 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
+                });
 
-        var checkTablesList = _context.CheckTables
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "REVISIÓN",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(checkTablesList.Any()
-            ? checkTablesList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
+            var checkTablesList = _context.CheckTables
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "REVISIÓN",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(checkTablesList.Any()
+                ? checkTablesList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
                 new biz.rebel_wings.Models.Dashboard.Task()
                 {
                     Date = date,
@@ -1659,156 +1733,300 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                     Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
                     PercentageComplete = 0
                 }
-            });
-        dashboardRegional.TasksSystemCollection = tasks.OrderBy(o=>o.Date).ToList();
-        tasks.Clear();
+                });
+            dashboardRegional.TasksSystemCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
 
-        #endregion
+            #endregion
+        }
+        else{
+            #region Kitchen
+
+            var fryerCleaningsList = _context.FryerCleanings
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "FREIDORAS NO",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(fryerCleaningsList.Any()
+                ? fryerCleaningsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
+                new biz.rebel_wings.Models.Dashboard.Task()
+                {
+                    Date = date,
+                    Detail = 0,
+                    Status = 0,
+                    Name = "SIN VISITA",
+                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id)  && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    PercentageComplete = 1
+                }
+                });
+            dashboardRegional.TasksKitchenCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
+
+            #endregion
+
+            #region Salon
+            var fridgeSalonsList = _context.FridgeSalons
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "REFRIS NO",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(fridgeSalonsList.Any()
+                ? fridgeSalonsList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
+                new biz.rebel_wings.Models.Dashboard.Task()
+                {
+                    Date = date,
+                    Detail = 0,
+                    Status = 0,
+                    Name = "SIN VISITA",
+                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    PercentageComplete = 1
+                }
+                });
+            dashboardRegional.TasksSalonCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
+            #endregion
+
+            #region Baños
+            var washBasinSoapPapersList = _context.WashBasinWithSoapPapers
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "LAVABOS NO",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(washBasinSoapPapersList.Any()
+                ? washBasinSoapPapersList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
+                new biz.rebel_wings.Models.Dashboard.Task()
+                {
+                    Date = date,
+                    Detail = 0,
+                    Status = 0,
+                    Name = "SIN VISITA",
+                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    PercentageComplete = 1
+                }
+                });
+            dashboardRegional.TasksBathroomsCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
+            #endregion
+
+            #region Sistema
+            var checkTablesList = _context.CheckTables
+                .Where(a =>
+                    a.BranchId == id
+                    && a.CreatedDate >= date
+                    && a.CreatedDate <= dateEnd
+                    && _context.Users.Any(x => x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s => s.BranchId).Contains(id) && x.RoleId == 2))
+                .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+                {
+                    Date = s.CreatedDate,
+                    Detail = s.Id,
+                    Name = "REVISIÓN NO",
+                    Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q => $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    Status = 1,
+                    PercentageComplete = 100
+                }).ToList();
+            tasks.AddRange(checkTablesList.Any()
+                ? checkTablesList
+                : new biz.rebel_wings.Models.Dashboard.Task[]
+                {
+                new biz.rebel_wings.Models.Dashboard.Task()
+                {
+                    Date = date,
+                    Detail = 0,
+                    Status = 0,
+                    Name = "SIN VISITA",
+                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+                    PercentageComplete = 1
+                }
+                });
+            dashboardRegional.TasksSystemCollection = tasks.OrderBy(o => o.Date).ToList();
+            tasks.Clear();
+            #endregion
+
+        }
 
         #region Maintenance
 
-        var kitchensList = _context.Kitchens
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "Cocina",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(kitchensList.Any()
-            ? kitchensList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
-                new biz.rebel_wings.Models.Dashboard.Task()
-                {
-                    Date = date,
-                    Detail = 0,
-                    Status = 0,
-                    Name = "Cocina",
-                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                    PercentageComplete = 0
-                }
-            });
+        //var kitchensList = _context.Kitchens
+        //    .Where(a => 
+        //        a.BranchId == id 
+        //        && a.CreatedDate >= date 
+        //        && a.CreatedDate <= dateEnd
+        //        && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
+        //    .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+        //    {
+        //        Date = s.CreatedDate,
+        //        Detail = s.Id,
+        //        Name = "Cocina",
+        //        Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //        Status = 1,
+        //        PercentageComplete = 100
+        //    }).ToList();
+        //tasks.AddRange(kitchensList.Any()
+        //    ? kitchensList
+        //    : new biz.rebel_wings.Models.Dashboard.Task[]
+        //    {
+        //        new biz.rebel_wings.Models.Dashboard.Task()
+        //        {
+        //            Date = date,
+        //            Detail = 0,
+        //            Status = 0,
+        //            Name = "Cocina",
+        //            Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //            PercentageComplete = 0
+        //        }
+        //    });
 
-        var salonsList = _context.Salons
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "Salon",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(salonsList.Any()
-            ? salonsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
-                new biz.rebel_wings.Models.Dashboard.Task()
-                {
-                    Date = date,
-                    Detail = 0,
-                    Status = 0,
-                    Name = "Salon",
-                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                    PercentageComplete = 0
-                }
-            });
+        //var salonsList = _context.Salons
+        //    .Where(a => 
+        //        a.BranchId == id 
+        //        && a.CreatedDate >= date 
+        //        && a.CreatedDate <= dateEnd
+        //        && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
+        //    .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+        //    {
+        //        Date = s.CreatedDate,
+        //        Detail = s.Id,
+        //        Name = "Salon",
+        //        Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //        Status = 1,
+        //        PercentageComplete = 100
+        //    }).ToList();
+        //tasks.AddRange(salonsList.Any()
+        //    ? salonsList
+        //    : new biz.rebel_wings.Models.Dashboard.Task[]
+        //    {
+        //        new biz.rebel_wings.Models.Dashboard.Task()
+        //        {
+        //            Date = date,
+        //            Detail = 0,
+        //            Status = 0,
+        //            Name = "Salon",
+        //            Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //            PercentageComplete = 0
+        //        }
+        //    });
 
-        var bathroomsList = _context.Bathrooms
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "Baños",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(bathroomsList.Any()
-            ? bathroomsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
-                new biz.rebel_wings.Models.Dashboard.Task()
-                {
-                    Date = date,
-                    Detail = 0,
-                    Status = 0,
-                    Name = "Baños",
-                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                    PercentageComplete = 0
-                }
-            });
+        //var bathroomsList = _context.Bathrooms
+        //    .Where(a => 
+        //        a.BranchId == id 
+        //        && a.CreatedDate >= date 
+        //        && a.CreatedDate <= dateEnd
+        //        && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
+        //    .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+        //    {
+        //        Date = s.CreatedDate,
+        //        Detail = s.Id,
+        //        Name = "Baños",
+        //        Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //        Status = 1,
+        //        PercentageComplete = 100
+        //    }).ToList();
+        //tasks.AddRange(bathroomsList.Any()
+        //    ? bathroomsList
+        //    : new biz.rebel_wings.Models.Dashboard.Task[]
+        //    {
+        //        new biz.rebel_wings.Models.Dashboard.Task()
+        //        {
+        //            Date = date,
+        //            Detail = 0,
+        //            Status = 0,
+        //            Name = "Baños",
+        //            Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //            PercentageComplete = 0
+        //        }
+        //    });
 
-        var barsList = _context.Bars
-            .Where(a => 
-                a.BranchId == id 
-                && a.CreatedDate >= date 
-                && a.CreatedDate <= dateEnd
-                && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
-            .Select(s => new biz.rebel_wings.Models.Dashboard.Task
-            {
-                Date = s.CreatedDate,
-                Detail = s.Id,
-                Name = "Barra",
-                Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                Status = 1,
-                PercentageComplete = 100
-            }).ToList();
-        tasks.AddRange(barsList.Any()
-            ? barsList
-            : new biz.rebel_wings.Models.Dashboard.Task[]
-            {
-                new biz.rebel_wings.Models.Dashboard.Task()
-                {
-                    Date = date,
-                    Detail = 0,
-                    Status = 0,
-                    Name = "Barra",
-                    Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
-                    PercentageComplete = 0
-                }
-            });
-        
-        dashboardRegional.TasksMaintenanceCollection = tasks.OrderBy(o=>o.Date).ToList();
-        tasks.Clear();
+        //var barsList = _context.Bars
+        //    .Where(a => 
+        //        a.BranchId == id 
+        //        && a.CreatedDate >= date 
+        //        && a.CreatedDate <= dateEnd
+        //        && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id) && x.RoleId == 2))
+        //    .Select(s => new biz.rebel_wings.Models.Dashboard.Task
+        //    {
+        //        Date = s.CreatedDate,
+        //        Detail = s.Id,
+        //        Name = "Barra",
+        //        Regional = $"{_context.Users.Where(f => f.Id == s.UpdatedBy && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //        Status = 1,
+        //        PercentageComplete = 100
+        //    }).ToList();
+        //tasks.AddRange(barsList.Any()
+        //    ? barsList
+        //    : new biz.rebel_wings.Models.Dashboard.Task[]
+        //    {
+        //        new biz.rebel_wings.Models.Dashboard.Task()
+        //        {
+        //            Date = date,
+        //            Detail = 0,
+        //            Status = 0,
+        //            Name = "Barra",
+        //            Regional = $"{_context.Users.Where(f => f.CatSucursals.Select(s=>s.BranchId).Contains(id) && f.StateId == city && f.RoleId == 2).Select(q=> $"{q.Name} {q.LastName} {q.MotherName}").First()}",
+        //            PercentageComplete = 0
+        //        }
+        //    });
+
+        //dashboardRegional.TasksMaintenanceCollection = tasks.OrderBy(o=>o.Date).ToList();
+        //tasks.Clear();
+
+        #endregion
 
         #endregion
 
-        #endregion
-        
         return dashboardRegional;
     }
     
     public DashboardRegional GetRegionalV2(int id, DateTime dateStart, DateTime dateEnd, int isDone, int city)
     {
         var objMassive = new DashboardRegional();
+        DateTime iniDate = dateStart;
+        dateStart = dateStart.AddHours(7);
+        dateEnd = dateEnd.AddHours(4);
+
 
         #region Tickets
 
         objMassive.Tickets = _context.Ticketings.Count(c =>
-            c.BranchId == id 
-            && c.Status == true 
-            && c.CreatedDate >= dateStart 
-            && c.CreatedDate <= dateEnd
-            && c.CreatedByNavigation.StateId == city);
+            c.BranchId == id
+            && c.Status == true
+            && c.CreatedByNavigation.StateId == city
+            );
 
         #endregion
 
@@ -1836,37 +2054,37 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         var tasksMaintenance = new List<biz.rebel_wings.Models.Dashboard.Task>();
         
         // Iterate by Day 
-        while (dateStart <= dateEnd)
+        while (iniDate <= dateEnd.AddHours(-4))
         {
-            var dashboardByDay = GetRegional(id, dateStart.Date, dateStart.Date.AddDays(1).AddTicks(-1), city);
-            tasksKitchen.AddRange(dashboardByDay.TasksKitchenCollection);
-            tasksSalon.AddRange(dashboardByDay.TasksSalonCollection);
-            tasksBathrooms.AddRange(dashboardByDay.TasksBathroomsCollection);
-            tasksSystems.AddRange(dashboardByDay.TasksSystemCollection);
-            tasksMaintenance.AddRange(dashboardByDay.TasksMaintenanceCollection);
-            dateStart = dateStart.AddDays(1);
+            var dashboardByDay = GetRegional(id, iniDate.Date, iniDate.Date, city);
+            tasksKitchen.AddRange(dashboardByDay.TasksKitchenCollection.Where(x => x.Name != "SIN VISITA"));
+            tasksSalon.AddRange(dashboardByDay.TasksSalonCollection.Where(x => x.Name != "SIN VISITA"));
+            tasksBathrooms.AddRange(dashboardByDay.TasksBathroomsCollection.Where(x => x.Name != "SIN VISITA"));
+            tasksSystems.AddRange(dashboardByDay.TasksSystemCollection.Where(x => x.Name != "SIN VISITA"));
+            //tasksMaintenance.AddRange(dashboardByDay.TasksMaintenanceCollection.Where(x => x.Name != "SIN VISITA"));
+            iniDate = iniDate.AddDays(1);
         }
         
         objMassive.TasksKitchenCollection = tasksKitchen
-            .OrderBy(g=> g.Name)
+            .OrderBy(g=> g.Date)
             .ThenBy(t=>t.Date)
             .ToList();
         objMassive.TasksSalonCollection = tasksSalon
-            .OrderBy(g=> g.Name)
+            .OrderBy(g=> g.Date)
             .ThenBy(t=>t.Date)
             .ToList();;
         objMassive.TasksBathroomsCollection = tasksBathrooms
-            .OrderBy(g=> g.Name)
+            .OrderBy(g=> g.Date)
             .ThenBy(t=>t.Date)
             .ToList();;
         objMassive.TasksSystemCollection = tasksSystems
-            .OrderBy(g=> g.Name)
+            .OrderBy(g=> g.Date)
             .ThenBy(t=>t.Date)
             .ToList();;
-        objMassive.TasksMaintenanceCollection = tasksMaintenance
-            .OrderBy(g=> g.Name)
-            .ThenBy(t=>t.Date)
-            .ToList();;
+        //objMassive.TasksMaintenanceCollection = tasksMaintenance
+        //    .OrderBy(g=> g.Name)
+        //    .ThenBy(t=>t.Date)
+        //    .ToList();;
         
         #region Omissions Activities
 
@@ -1875,17 +2093,41 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         taskAll.AddRange(tasksSalon);
         taskAll.AddRange(tasksBathrooms);
         taskAll.AddRange(tasksSystems);
-        taskAll.AddRange(tasksMaintenance);
-        var all = taskAll.GroupBy(g=>g.Name).Select(grp => new{
-                number  = grp.Key,
-                nameTask = grp.First().Name,
-                NoComplete   = grp.Count(c=>c.PercentageComplete == 0),
-                Complete   = grp.Count(c=>c.PercentageComplete == 100),
-                Total = grp.Count()
-            })
+        //taskAll.AddRange(tasksMaintenance);
+
+
+        var all = taskAll.Select(grp => new
+        {
+            number = grp.Name,
+            nameTask = grp.Name,
+            NoComplete = grp.Status == 0 ? 1 : 0,
+            Complete = grp.Status == 1 ? 1 : 0,
+            Total = 1
+        })
             .ToList();
+
+    //    var all = tasksAll.Select(grp => new
+    //    {
+    //        number = grp.NameTask,
+    //        NoComplete = grp.Status == false ? 1 : 0,
+    //        Complete = grp.Status == true ? 1 : 0,
+    //        Total = 1
+    //    })
+    //.ToList();
+
+        //var all = taskAll.GroupBy(g => g.Name).Select(grp => new
+        //{
+        //    number = grp.Key,
+        //    nameTask = grp.First().Name,
+        //    NoComplete = grp.Count(c => c.PercentageComplete == 0),
+        //    Complete = grp.Count(c => c.PercentageComplete == 100),
+        //    Total = grp.Count()
+        //})
+        //    .ToList();
+
+
         // Calculate percentage
-        var totalTask = all.Count();
+        var totalTask = 0;
         var byTask = new List<PerformanceByTask>();
         foreach (var task in all)
         {
@@ -1894,17 +2136,31 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                 Complete = Decimal.Divide(task.Complete * 100, task.Total),
                 NoComplete = Decimal.Divide(task.NoComplete * 100, task.Total)
             });
+            totalTask++;
         }
 
         decimal percentageByTask = Decimal.Divide(1 * 100, totalTask);
-        percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
+        //percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
         foreach (var task in byTask)
         {
             objMassive.OmissionsActivities += Decimal.Divide(task.NoComplete * percentageByTask, 100);
         }
-        
+
         #endregion
-        
+
+        //#region Quita Sin Visita
+        //objMassive.TasksBathroomsCollection =
+        //        objMassive.TasksBathroomsCollection.Where(x => x.Name != "SIN VISITA").ToList();
+        //objMassive.TasksSystemCollection =
+        //    objMassive.TasksSystemCollection.Where(x => x.Name != "SIN VISITA").ToList();
+        //objMassive.TasksMaintenanceCollection =
+        //    objMassive.TasksMaintenanceCollection.Where(x => x.Name != "SIN VISITA").ToList();
+        //objMassive.TasksSalonCollection =
+        //    objMassive.TasksSalonCollection.Where(x => x.Name != "SIN VISITA").ToList();
+        //objMassive.TasksKitchenCollection =
+        //    objMassive.TasksKitchenCollection.Where(x => x.Name != "SIN VISITA").ToList();
+        //#endregion
+
         // Check If the filter Done or Not is required
         if (isDone != 2)
         {
@@ -1912,8 +2168,8 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
                 objMassive.TasksBathroomsCollection.Where(x => x.Status == isDone).ToList();
             objMassive.TasksSystemCollection =
                 objMassive.TasksSystemCollection.Where(x => x.Status == isDone).ToList();
-            objMassive.TasksMaintenanceCollection =
-                objMassive.TasksMaintenanceCollection.Where(x => x.Status == isDone).ToList();
+            //objMassive.TasksMaintenanceCollection =
+            //    objMassive.TasksMaintenanceCollection.Where(x => x.Status == isDone).ToList();
             objMassive.TasksSalonCollection =
                 objMassive.TasksSalonCollection.Where(x => x.Status == isDone).ToList();
             objMassive.TasksKitchenCollection =
@@ -2201,10 +2457,14 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
 
             decimal percentageByTask = Decimal.Divide(1 * 100, totalTask);
             //percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
+            var nocomp = 0;
+            var sicomp = 0;
             foreach (var task in byTask)
             {
                 byBranch.Complete += Decimal.Divide(task.Complete * percentageByTask, 100);
+                sicomp = task.Complete == 100 ? sicomp + 1 : sicomp + 0;
                 byBranch.NoComplete += Decimal.Divide(task.NoComplete * percentageByTask, 100);
+                nocomp = task.Complete == 0 ? nocomp + 1 : nocomp + 0;
             }
             
             byBranch.AverageEvaluation = surveys.Any() ? decimal.Round((decimal)surveys.Average(), 2, MidpointRounding.ToZero) : 0;

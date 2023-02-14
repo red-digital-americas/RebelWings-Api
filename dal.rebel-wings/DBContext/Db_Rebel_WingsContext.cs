@@ -1211,6 +1211,11 @@ namespace dal.rebel_wings.DBContext
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasColumnName("updated_date");
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.ProductsInOrders)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Complete_Products_In_Order_Users");
             });
 
             modelBuilder.Entity<DrinksTemperature>(entity =>
@@ -1358,6 +1363,11 @@ namespace dal.rebel_wings.DBContext
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasColumnName("updated_date");
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.Fridges)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Fridges_Users");
             });
 
             modelBuilder.Entity<FridgeSalon>(entity =>
@@ -1416,6 +1426,11 @@ namespace dal.rebel_wings.DBContext
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasColumnName("updated_date");
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.Fryers)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Fryer_Cleaning_Users");
             });
 
             modelBuilder.Entity<GeneralCleaning>(entity =>
@@ -1654,6 +1669,12 @@ namespace dal.rebel_wings.DBContext
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasColumnName("updated_date");
+
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Order_Users");
             });
 
             modelBuilder.Entity<OrderScheduleReview>(entity =>
@@ -3038,6 +3059,11 @@ namespace dal.rebel_wings.DBContext
                 entity.Property(e => e.UpdatedDate)
                     .HasColumnType("datetime")
                     .HasColumnName("updated_date");
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.Precookeds)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Precooked_Chicken_Users");
             });
 
             modelBuilder.Entity<RequestTransfer>(entity =>
