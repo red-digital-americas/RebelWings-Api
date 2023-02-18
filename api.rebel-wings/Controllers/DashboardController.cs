@@ -245,7 +245,7 @@ public class DashboardController : ControllerBase
         var response = new ApiResponse<DashboardAdminPerformanceDto>();
         try
         {
-            var res = _mapper.Map<DashboardAdminPerformanceDto>(_dashboardRepository.GetAdminPerformance(city, regional, startDate, endDate));
+            var res = _mapper.Map<DashboardAdminPerformanceDto>(_dashboardRepository.GetAdminPerformance(city, regional, startDate.AbsoluteStart(), endDate.AbsoluteEnd()));
             switch (city)
             {
                 case 1:
@@ -287,8 +287,9 @@ public class DashboardController : ControllerBase
                     Name = i.NameBranch,
                     Series = new List<SerieDto>()
                     {
-                        new(){ Name = "No Completado", Value = i.NoComplete },
                         new(){ Name = "Completado", Value = i.Complete },
+                        new(){ Name = "No Completado", Value = i.NoComplete },
+                        
                     }
                 });
             }
@@ -367,8 +368,9 @@ public class DashboardController : ControllerBase
                     Name = i.NameBranch,
                     Series = new List<SerieDto>()
                     {
-                        new(){ Name = "No Completado", Value = i.NoComplete },
                         new(){ Name = "Completado", Value = i.Complete },
+                        new(){ Name = "No Completado", Value = i.NoComplete },
+                        
                     }
                 });
             }
