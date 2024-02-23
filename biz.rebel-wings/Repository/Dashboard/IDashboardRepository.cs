@@ -14,4 +14,6 @@ public interface IDashboardRepository : IGenericRepository<Entities.Satisfaction
     DashboardRegional GetRegional(int id, DateTime date, DateTime dateEnd, int city);
     DashboardRegional GetRegionalV2(int id, DateTime date, DateTime dateEnd, int isDone, int city);
     DashboardAssistanceV2 GetAssistance(int id, DateTime date, DateTime dateEnd);
+    DashboardAdminPerformance GetAdminPerformance(int city, int regional, DateTime dateStart, DateTime dateEnd);
+    DashboardAdminPerformance GetAdminPerformanceSupervisor(int city, int regional, DateTime dateStart, DateTime dateEnd);
 }

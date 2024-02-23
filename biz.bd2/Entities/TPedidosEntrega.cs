@@ -14,18 +14,13 @@ namespace biz.bd2.Entities
 
         public int Id { get; set; }
         public int IdProveedor { get; set; }
-        public DateTime? FechaProgPedido { get; set; }
-        public DateTime? FechaPedidoReal { get; set; }
-        public DateTime? FechaProgEntrega { get; set; }
-        public DateTime? FechaEntregaReal { get; set; }
-        public string ComentariosPedido { get; set; }
-        public string ComentariosEntrega { get; set; }
-        public int EstatusEntrega { get; set; }
-        public int EstatusPedido { get; set; }
+        public DateTime? FechaProg { get; set; }
+        public DateTime? FechaReal { get; set; }
+        public string Comentarios { get; set; }
+        public int Estatus { get; set; }
         public int IdSucursal { get; set; }
 
-        public virtual TEstatusPedidosEntrega EstatusEntregaNavigation { get; set; }
-        public virtual TEstatusPedidosEntrega EstatusPedidoNavigation { get; set; }
+        public virtual TEstatusPedidosEntrega EstatusNavigation { get; set; }
         public virtual ICollection<TFotosPedidosEntrega> TFotosPedidosEntregas { get; set; }
     }
 }

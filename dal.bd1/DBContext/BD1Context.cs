@@ -48505,49 +48505,29 @@ namespace dal.bd1.DBContext
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.ComentariosEntrega)
+                entity.Property(e => e.Comentarios)
                     .HasMaxLength(500)
-                    .HasColumnName("COMENTARIOS_ENTREGA");
+                    .HasColumnName("COMENTARIOS");
 
-                entity.Property(e => e.ComentariosPedido)
-                    .HasMaxLength(500)
-                    .HasColumnName("COMENTARIOS_PEDIDO");
+                entity.Property(e => e.Estatus).HasColumnName("ESTATUS");
 
-                entity.Property(e => e.EstatusEntrega).HasColumnName("ESTATUS_ENTREGA");
-
-                entity.Property(e => e.EstatusPedido).HasColumnName("ESTATUS_PEDIDO");
-
-                entity.Property(e => e.FechaEntregaReal)
+                entity.Property(e => e.FechaReal)
                     .HasColumnType("datetime")
-                    .HasColumnName("FECHA_ENTREGA_REAL");
+                    .HasColumnName("FECHA_REAL");
 
-                entity.Property(e => e.FechaPedidoReal)
+                entity.Property(e => e.FechaProg)
                     .HasColumnType("datetime")
-                    .HasColumnName("FECHA_PEDIDO_REAL");
-
-                entity.Property(e => e.FechaProgEntrega)
-                    .HasColumnType("datetime")
-                    .HasColumnName("FECHA_PROG_ENTREGA");
-
-                entity.Property(e => e.FechaProgPedido)
-                    .HasColumnType("datetime")
-                    .HasColumnName("FECHA_PROG_PEDIDO");
+                    .HasColumnName("FECHA_PROG");
 
                 entity.Property(e => e.IdProveedor).HasColumnName("ID_PROVEEDOR");
 
                 entity.Property(e => e.IdSucursal).HasColumnName("ID_SUCURSAL");
 
-                entity.HasOne(d => d.EstatusEntregaNavigation)
-                    .WithMany(p => p.TPedidosEntregaEstatusEntregaNavigations)
-                    .HasForeignKey(d => d.EstatusEntrega)
+                entity.HasOne(d => d.EstatusNavigation)
+                    .WithMany(p => p.TPedidosEntregaEstatusNavigations)
+                    .HasForeignKey(d => d.Estatus)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ESTATUS_ENTREGA");
-
-                entity.HasOne(d => d.EstatusPedidoNavigation)
-                    .WithMany(p => p.TPedidosEntregaEstatusPedidoNavigations)
-                    .HasForeignKey(d => d.EstatusPedido)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ESTATUS_PEDIDO");
+                    .HasConstraintName("FK_ESTATUS");
             });
 
             OnModelCreatingPartial(modelBuilder);

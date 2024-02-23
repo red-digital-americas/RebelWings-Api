@@ -822,6 +822,7 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         dateStart = dateStart.AddHours(7);
         dateEnd = dateEnd.AddHours(4);
         var dashboardSupervisor = new DashboardSupervisor();
+        var taskPerShiftsList = new List<TaskPerShifts>();
         var taskPerShiftsEveningList = new List<TaskPerShifts>();
         var taskPerShiftsMorningList = new List<TaskPerShifts>();
         
@@ -925,7 +926,9 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             .OrderBy(g=> g.NameTask)
             .ThenBy(t=>t.Date)
             .ToList();;
+
         dashboardSupervisor.OmissionsActivities = omitidas / dias;
+
         // Check If the filter Done or Not is required
         if (isDone != 2)
         {
@@ -1772,150 +1775,19 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         #region AvarageEvaluation
 
         var success = _context.SatisfactionSurveys.Where(x => 
-                x.BranchId == id 
-                && x.CreatedDate >= dateStart 
-                && x.CreatedDate <= dateEnd)
-            .Sum(s=>s.Review);
-        var totals = _context.SatisfactionSurveys.Count(x => x.BranchId == id && x.CreatedDate >= dateStart && x.CreatedDate <= dateEnd);
-        objMassive.AverageEvaluation = totals > 0 ? (decimal)success / totals : 0; 
+                x.CreatedDate.Date >= dateStart.Date 
+                && x.CreatedDate.Date <= dateEnd
+                && x.BranchId == id
+                && _context.Users.Any(y=>
+                    y.Id == x.UpdatedBy 
+                    && y.StateId == city 
+                    && y.CatSucursals.Select(s=>s.BranchId).Contains(id) 
+                    && y.RoleId == 2))
+            .Select(s=>s.Review).ToList();
+        objMassive.AverageEvaluation = success.Any() ? (decimal)success.Average() : 0;
 
         #endregion
-       
-        #region Omissions Activities
 
-        var activities = new List<bool>();
-        activities.Add(_context.Orders.Any(a=>
-            a.CreatedDate >= dateStart 
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.Fridges.Any(a=>
-            a.CreatedDate >= dateStart 
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.PrecookedChickens.Any(a=>
-            a.CreatedDate >= dateStart 
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.CompleteProductsInOrders.Any(a=>
-            a.CreatedDate >= dateStart 
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.FryerCleanings.Any(a=>
-            a.CreatedDate >= dateStart 
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        
-        activities.Add(_context.PeopleCountings.Any(a=>
-            a.CreatedDate >= dateStart 
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.SatisfactionSurveys.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.GeneralCleanings.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.Stations.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.DrinksTemperatures.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.AudioVideos.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.Spotlights.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.BarCleanings.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.FridgeSalons.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        
-        activities.Add(_context.BathRoomsOverallStatuses.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.WashBasinWithSoapPapers.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        
-        activities.Add(_context.TicketTables.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.EntriesChargedAsDeliveryNotes.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.OrderScheduleReviews.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.CheckTables.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        
-        activities.Add(_context.Kitchens.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.Salons.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.Bathrooms.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd 
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        activities.Add(_context.Bars.Any(a=>
-            a.CreatedDate >= dateStart
-            && a.CreatedDate <= dateEnd
-            && _context.Users.Any(x=>x.Id == a.UpdatedBy && x.StateId == city && x.CatSucursals.Select(s=>s.BranchId).Contains(id)))
-        );
-        var totalActivities = activities.Count;
-        var validateActivities = activities.Count(c => c.Equals(true));
-        var percentage = (decimal)validateActivities * 100 / totalActivities;
-        var resPercentage = percentage - 100;
-        objMassive.OmissionsActivities = Decimal.Negate(resPercentage);
-
-        #endregion
-        
         // Initialize Collections
         var tasksKitchen = new List<biz.rebel_wings.Models.Dashboard.Task>();
         var tasksSalon = new List<biz.rebel_wings.Models.Dashboard.Task>();
@@ -1955,6 +1827,43 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
             .OrderBy(g=> g.Name)
             .ThenBy(t=>t.Date)
             .ToList();;
+        
+        #region Omissions Activities
+
+        var taskAll = new List<biz.rebel_wings.Models.Dashboard.Task>();
+        taskAll.AddRange(tasksKitchen);
+        taskAll.AddRange(tasksSalon);
+        taskAll.AddRange(tasksBathrooms);
+        taskAll.AddRange(tasksSystems);
+        taskAll.AddRange(tasksMaintenance);
+        var all = taskAll.GroupBy(g=>g.Name).Select(grp => new{
+                number  = grp.Key,
+                nameTask = grp.First().Name,
+                NoComplete   = grp.Count(c=>c.PercentageComplete == 0),
+                Complete   = grp.Count(c=>c.PercentageComplete == 100),
+                Total = grp.Count()
+            })
+            .ToList();
+        // Calculate percentage
+        var totalTask = all.Count();
+        var byTask = new List<PerformanceByTask>();
+        foreach (var task in all)
+        {
+            byTask.Add(new PerformanceByTask()
+            {
+                Complete = Decimal.Divide(task.Complete * 100, task.Total),
+                NoComplete = Decimal.Divide(task.NoComplete * 100, task.Total)
+            });
+        }
+
+        decimal percentageByTask = Decimal.Divide(1 * 100, totalTask);
+        percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
+        foreach (var task in byTask)
+        {
+            objMassive.OmissionsActivities += Decimal.Divide(task.NoComplete * percentageByTask, 100);
+        }
+        
+        #endregion
         
         // Check If the filter Done or Not is required
         if (isDone != 2)
@@ -2063,5 +1972,220 @@ public class DashboardRepository : GenericRepository<biz.rebel_wings.Entities.Sa
         #endregion
         return dashboardAssistance;
     }
-    
+
+    public DashboardAdminPerformance GetAdminPerformance(int city, int regional, DateTime dateStart, DateTime dateEnd)
+    {
+        var dashboard = new DashboardAdminPerformance();
+        dashboard.Id = regional;
+        var totalTask = 0;
+        // Initialize Collections
+        var tasksAll = new List<biz.rebel_wings.Models.Dashboard.Task>();
+        var byBranches = new List<DashboardAdminPerformanceByBranch>();
+        var taskAllOmittedActivities = new List<biz.rebel_wings.Models.Dashboard.Task>();
+        // Get branches from regional
+        var branches = _context.CatSucursals.Where(f => f.UserId == regional).Select(s => s.BranchId).ToList();
+        // Iterate by branch
+        foreach (var branch in branches)
+        {
+            var byBranch = new DashboardAdminPerformanceByBranch();
+            var byTask = new List<PerformanceByTask>();
+            var dateOne = dateStart;
+            var dateTwo = dateEnd;
+            List<int> surveys = new List<int>();
+            // int[] surveys = new int[] { };
+            // Iterate by Day 
+            while (dateOne <= dateTwo)
+            {
+                var dashboardByDay = GetRegional(branch, dateOne.Date, dateOne.Date.AddDays(1).AddTicks(-1), city);
+                tasksAll.AddRange(dashboardByDay.TasksKitchenCollection);
+                tasksAll.AddRange(dashboardByDay.TasksSalonCollection);
+                tasksAll.AddRange(dashboardByDay.TasksBathroomsCollection);
+                tasksAll.AddRange(dashboardByDay.TasksSystemCollection);
+                tasksAll.AddRange(dashboardByDay.TasksMaintenanceCollection);
+                #region Average Evaluation
+
+                var i = _context.SatisfactionSurveys
+                        .Where(x => 
+                            x.CreatedDate.Date >= dateOne.Date 
+                            && x.CreatedDate.Date <= dateOne.Date.AddDays(1).AddTicks(-1)
+                            && x.BranchId == branch
+                            && _context.Users.Any(y=>
+                                y.Id == x.UpdatedBy 
+                                && y.StateId == city 
+                                && y.CatSucursals.Select(s=>s.BranchId).Contains(branch) 
+                                && y.RoleId == 2)
+                            )
+                        .Select(s => s.Review).ToArray();
+                surveys.AddRange(i);
+
+                #endregion
+                dateOne = dateOne.AddDays(1);
+            }
+            byBranch.IdBranch = branch;
+            var all = tasksAll.GroupBy(g=>g.Name).Select(grp => new{
+                    number  = grp.Key,
+                    nameTask = grp.First().Name,
+                    NoComplete   = grp.Count(c=>c.PercentageComplete == 0),
+                    Complete   = grp.Count(c=>c.PercentageComplete == 100),
+                    Total = grp.Count()
+                })
+                .ToList();
+            
+            // Calculate percentage
+            totalTask = all.Count();
+            foreach (var task in all)
+            {
+                byTask.Add(new PerformanceByTask()
+                {
+                    Complete = Decimal.Divide(task.Complete * 100, task.Total),
+                    NoComplete = Decimal.Divide(task.NoComplete * 100, task.Total)
+                });
+            }
+
+            decimal percentageByTask = Decimal.Divide(1 * 100, totalTask);
+            percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
+            foreach (var task in byTask)
+            {
+                byBranch.Complete += Decimal.Divide(task.Complete * percentageByTask, 100);
+                byBranch.NoComplete += Decimal.Divide(task.NoComplete * percentageByTask, 100);
+            }
+
+            byBranch.AverageEvaluation = surveys.Any() ? decimal.Round((decimal)surveys.Average(), 2, MidpointRounding.ToZero) : 0;
+            
+            byBranches.Add(byBranch);
+            taskAllOmittedActivities.AddRange(tasksAll);
+            tasksAll.Clear();
+
+        }
+
+        dashboard.Performances = byBranches;
+        var percentageByBranch = 1 * 100 / branches.Count();
+        foreach (var performance in dashboard.Performances)
+        {
+            dashboard.Complete += Decimal.Divide(performance.Complete * percentageByBranch, 100);
+            dashboard.NoComplete += Decimal.Divide(performance.NoComplete * percentageByBranch, 100);
+        }
+
+        #region Top 5 Omitted activities
+
+        dashboard.TopOmittedTask = taskAllOmittedActivities.GroupBy(g => g.Name).Select(s => new TaskNoComplete()
+        {
+            Name = s.First().Name,
+            Value = s.Count(c => c.PercentageComplete == 0)
+        })
+            .OrderByDescending(o=>o.Value)
+            .Take(5)
+            .ToList();
+
+        #endregion
+
+        dashboard.AverageEvaluation = dashboard.Performances.Select(s => s.AverageEvaluation).Average();
+
+        return dashboard;
+    }
+
+    public DashboardAdminPerformance GetAdminPerformanceSupervisor(int city, int regional, DateTime dateStart, DateTime dateEnd)
+    {
+        var dashboard = new DashboardAdminPerformance();
+        dashboard.Id = regional;
+        var totalTask = 0;
+        // Initialize Collections
+        var tasksAll = new List<TaskPerShifts>();
+        var byBranches = new List<DashboardAdminPerformanceByBranch>();
+        var taskAllOmittedActivities = new List<TaskPerShifts>();
+        // Get branches from regional
+        var branches = _context.CatSucursals.Where(f => f.UserId == regional).Select(s => s.BranchId).ToList();
+        // Iterate by branch
+        foreach (var branch in branches)
+        {
+            var byBranch = new DashboardAdminPerformanceByBranch();
+            var byTask = new List<PerformanceByTask>();
+            var dateOne = dateStart;
+            var dateTwo = dateEnd;
+            List<int> surveys = new List<int>();
+            // Iterate by Day 
+            while (dateOne <= dateTwo)
+            {
+                var dashboardByDay = GetSupervisors(branch, dateOne.Date, dateOne.Date.AddDays(1).AddTicks(-1), city);
+                tasksAll.AddRange(dashboardByDay.TasksMorningsCollection);
+                tasksAll.AddRange(dashboardByDay.TasksEveningsCollection);
+                #region Average Evaluation
+
+                var i = _context.SatisfactionSurveys
+                    .Where(x => 
+                        x.CreatedDate.Date >= dateOne.Date 
+                        && x.CreatedDate.Date <= dateOne.Date.AddDays(1).AddTicks(-1)
+                        && x.BranchId == branch
+                        && _context.Users.Any(y=>
+                            y.Id == x.UpdatedBy 
+                            && y.StateId == city 
+                            && y.CatSucursals.Select(s=>s.BranchId).Contains(branch) 
+                            && y.RoleId == 2)
+                    )
+                    .Select(s => s.Review).ToArray();
+                surveys.AddRange(i);
+
+                #endregion
+                dateOne = dateOne.AddDays(1);
+            }
+            byBranch.IdBranch = branch;
+            var all = tasksAll.GroupBy(g=>g.NameTask).Select(grp => new{
+                    number = grp.Key,
+                    NoComplete = grp.Count(c=>c.PercentageComplete == 0),
+                    Complete = grp.Count(c=>c.PercentageComplete == 100),
+                    Total = grp.Count()
+                })
+                .ToList();
+            // Calculate percentage
+            totalTask = all.Count();
+            foreach (var task in all)
+            {
+                byTask.Add(new PerformanceByTask()
+                {
+                    Complete = Decimal.Divide(task.Complete * 100, task.Total),
+                    NoComplete = Decimal.Divide(task.NoComplete * 100, task.Total)
+                });
+            }
+
+            decimal percentageByTask = Decimal.Divide(1 * 100, totalTask);
+            percentageByTask = decimal.Round(percentageByTask, 2, MidpointRounding.ToZero);
+            foreach (var task in byTask)
+            {
+                byBranch.Complete += Decimal.Divide(task.Complete * percentageByTask, 100);
+                byBranch.NoComplete += Decimal.Divide(task.NoComplete * percentageByTask, 100);
+            }
+            
+            byBranch.AverageEvaluation = surveys.Any() ? decimal.Round((decimal)surveys.Average(), 2, MidpointRounding.ToZero) : 0;
+
+            byBranches.Add(byBranch);
+            taskAllOmittedActivities.AddRange(tasksAll);
+            tasksAll.Clear();
+
+        }
+
+        dashboard.Performances = byBranches;
+        var percentageByBranch = 1 * 100 / branches.Count();
+        foreach (var performance in dashboard.Performances)
+        {
+            dashboard.Complete += Decimal.Divide(performance.Complete * percentageByBranch, 100);
+            dashboard.NoComplete += Decimal.Divide(performance.NoComplete * percentageByBranch, 100);
+        }
+        
+        #region Top 5 Omitted activities
+
+        dashboard.TopOmittedTask = taskAllOmittedActivities.GroupBy(g => g.NameTask).Select(s => new TaskNoComplete()
+            {
+                Name = s.First().NameTask,
+                Value = s.Count(c => c.PercentageComplete == 0)
+            })
+            .OrderByDescending(o=>o.Value)
+            .Take(5)
+            .ToList();
+
+        #endregion
+        
+        dashboard.AverageEvaluation = dashboard.Performances.Select(s => s.AverageEvaluation).Average();
+
+        return dashboard;
+    }
 }

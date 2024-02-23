@@ -1011,6 +1011,17 @@ namespace api.rebel_wings.Controllers
                         });
                         data.Progress = _barRepository.ProgressTask(data.ControlCenters.Count(x=>x.IsComplete.Equals(true)), 4);
                         break;
+                    case 6:
+                        data.ControlCenters.Add(new ControlCenter()
+                        {
+                            Name = "CALENDARIO",
+                            Description = "",
+                            IsPercentageOrComplete = false,
+                            IsComplete = false,
+                            Percentage = 0,
+                            Color = "warning"
+                        });
+                        break;
                     default:
                         response.Success = false;
                         response.Message = "Option no valid";
